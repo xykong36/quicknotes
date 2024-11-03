@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import { ExampleGrid } from "@/components/ExampleGrid";
+import ParagraphPage from "../components/ParagraphPage";
 
 // Mock data structure
 const CATEGORIES = [

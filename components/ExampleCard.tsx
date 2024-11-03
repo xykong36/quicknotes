@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
 import { Search } from "lucide-react";
+import ParagraphPage from "./ParagraphPage";
 
 interface ExampleCardProps {
   example: {
@@ -65,6 +66,7 @@ export const ExampleCard = ({ example }: ExampleCardProps) => {
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        width={800}
       >
         <img
           src={example.image}
@@ -72,6 +74,9 @@ export const ExampleCard = ({ example }: ExampleCardProps) => {
           className="w-full h-48 object-cover mb-4"
         />
         <p>{example.duration}</p>
+        <div>
+          <ParagraphPage />
+        </div>
         <div className="flex gap-2">
           {example.tags.map((tag) => (
             <span

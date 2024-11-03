@@ -1,0 +1,51 @@
+{
+  "header": {
+    "emoji": "😊",
+    "text": "【🧠例句可以先看中文，尝试开口用英文表达后点开🧠前的黑色三角形🔍查看英文表达】"
+  },
+  "nativeSpeakerExpression": {
+    "emoji": "💡",
+    "text": "母语者地道表达"
+  },
+  "phrases": [
+    {
+      "checkIcon": true,
+      "englishPhrase": "blood flow going",
+      "chineseTranslation": "促进血液循环",
+      "englishExplanation": "英文释义：促进血液循环",
+      "exampleSentences": [
+        {
+          "chinese": "早上跑步能促进血液流动，让我一整天都精神更好。",
+          "english": "A quick jog in the morning gets my blood flow going and helps me feel more fresh throughout the day."
+        }
+      ],
+      "synonyms": [
+        "Get your blood pumping",
+        "Boost circulation"
+      ],
+      "relatedExpressions": [
+        "Get your heart rate up提高心率",
+        "Get the adrenaline flowing肾上腺素飙升"
+      ]
+    },
+    {
+      "checkIcon": true,
+      "englishPhrase": "do over and over",
+      "chineseTranslation": "不断重复做",
+      "englishExplanation": "英文释义：不断重复做",
+      "exampleSentences": [
+        {
+          "chinese": "如果你不断重复同样的锻炼动作，肌肉会适应，进步就不会太大。",
+          "english": "If you do the same exercise over and over, your muscles will get used to it, and you won't see much progress."
+        }
+      ],
+      "synonyms": [
+        "Do again and again",
+        "Repeat"
+      ],
+      "relatedExpressions": [
+        "do once 只做一次"
+      ]
+    }
+  ]
+}
