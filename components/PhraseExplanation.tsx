@@ -1,6 +1,6 @@
 import React from "react";
 import { Check } from "lucide-react";
-import content from "../content.json"; // 假设 content.json 文件在 components 文件夹的上一级目录
+import content from "@/data/content.json";
 
 const PhraseExplanation = () => {
   return (

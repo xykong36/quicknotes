@@ -2,83 +2,28 @@
 
 import React, { useState } from "react";
 import { Search } from "lucide-react";
-import Image from "next/image";
-import { ExampleGrid } from "@/components/ExampleGrid";
-import ParagraphPage from "../components/ParagraphPage";
+import { VideoGrid } from "@/components/VideoGrid";
 import youtubeVideos from "@/data/youtube_videos.json";
-
-const CATEGORIES = [
-  {
-    id: "acquisition",
-    label: "TOPIC",
-    subcategories: [
-      { id: "technology", label: "Technology", color: "bg-blue-100" },
-      { id: "climate-change", label: "Climate Change", color: "bg-green-100" },
-      { id: "education", label: "Education", color: "bg-yellow-100" },
-      { id: "health", label: "Health", color: "bg-red-100" },
-      { id: "economics", label: "Economics", color: "bg-purple-100" },
-      { id: "politics", label: "Politics", color: "bg-orange-100" },
-    ],
-  },
-  {
-    id: "level",
-    label: "LEVEL",
-    subcategories: [
-      { id: "cet4", label: "CET-4", color: "bg-blue-100" },
-      { id: "cet6", label: "CET-6", color: "bg-pink-100" },
-      { id: "ielts6", label: "IELTS 6", color: "bg-green-100" },
-      { id: "ielts7", label: "IELTS 7", color: "bg-yellow-100" },
-      { id: "ielts8", label: "IELTS 8", color: "bg-purple-100" },
-      { id: "toefl", label: "TOEFL", color: "bg-red-100" },
-    ],
-  },
-  {
-    id: "subject",
-    label: "SUBJECT",
-    subcategories: [
-      { id: "math", label: "Math", color: "bg-blue-100" },
-      { id: "geography", label: "Geography", color: "bg-green-100" },
-      { id: "biology", label: "Biology", color: "bg-red-100" },
-      { id: "chemistry", label: "Chemistry", color: "bg-yellow-100" },
-      { id: "physics", label: "Physics", color: "bg-purple-100" },
-      { id: "history", label: "History", color: "bg-orange-100" },
-    ],
-  },
-];
+import { CATEGORIES } from "@/constants/categories";
 
 const YOUTUBE_VIDEOS = youtubeVideos;
-const EXAMPLES = [
-  {
-    id: 1,
-    title: "Same interview. 700x reach.",
-    duration: "30 secs",
-    tags: ["Social"],
-    image: "/static/images/ocean.jpeg",
-  },
-  {
-    id: 2,
-    title: "Posting seltzer. Making money.",
-    duration: "2 mins",
-    tags: ["Creative"],
-    image: "/static/images/ocean.jpeg",
-  },
-];
 
-const MarketingExamples = () => {
+const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const filteredExamples = YOUTUBE_VIDEOS.filter((example) => {
-    const matchesSearch = example.title
+  const filteredExamples = YOUTUBE_VIDEOS.filter((video) => {
+    const matchesSearch = video.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
     const matchesTags =
       selectedTags.length === 0 ||
-      example.tags.some((tag) => selectedTags.includes(tag));
+      // TODO: 添加视频标签
+      video.tags.some((tag) => selectedTags.includes(tag));
     return matchesSearch && matchesTags;
   });
 
-  const toggleTag = (tag) => {
+  const toggleTag = (tag: string) => {
     setSelectedTags((prev) =>
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
@@ -107,13 +52,11 @@ const MarketingExamples = () => {
                 {category.subcategories.map((subcategory) => (
                   <button
                     key={subcategory.id}
-                    className={`px-3 py-1 rounded text-sm ${
-                      subcategory.color
-                    } transition-opacity ${
-                      selectedTags.includes(subcategory.label)
+                    className={`px-3 py-1 rounded text-sm ${subcategory.color
+                      } transition-opacity ${selectedTags.includes(subcategory.label)
                         ? "opacity-100"
                         : "opacity-80 hover:opacity-100"
-                    }`}
+                      }`}
                     onClick={() => toggleTag(subcategory.label)}
                   >
                     {subcategory.label}
@@ -140,12 +83,12 @@ const MarketingExamples = () => {
             />
           </div>
 
-          {/* Examples Grid */}
-          <ExampleGrid examples={filteredExamples} />
+
+          <VideoGrid videos={filteredExamples} />
         </div>
       </div>
     </div>
   );
 };
 
-export default MarketingExamples;
+export default HomePage;
