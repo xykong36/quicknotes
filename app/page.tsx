@@ -5,39 +5,48 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 import { ExampleGrid } from "@/components/ExampleGrid";
 import ParagraphPage from "../components/ParagraphPage";
+import youtubeVideos from "@/data/youtube_videos.json";
 
 const CATEGORIES = [
   {
     id: "acquisition",
-    label: "ACQUISITION",
+    label: "TOPIC",
     subcategories: [
-      { id: "content", label: "Content", color: "bg-pink-100" },
-      { id: "seo", label: "SEO", color: "bg-green-100" },
-      { id: "sales", label: "Sales", color: "bg-purple-100" },
-      { id: "social", label: "Social", color: "bg-purple-200" },
-      { id: "ads", label: "Ads", color: "bg-yellow-100" },
+      { id: "technology", label: "Technology", color: "bg-blue-100" },
+      { id: "climate-change", label: "Climate Change", color: "bg-green-100" },
+      { id: "education", label: "Education", color: "bg-yellow-100" },
+      { id: "health", label: "Health", color: "bg-red-100" },
+      { id: "economics", label: "Economics", color: "bg-purple-100" },
+      { id: "politics", label: "Politics", color: "bg-orange-100" },
     ],
   },
   {
-    id: "conversion",
-    label: "CONVERSION",
+    id: "level",
+    label: "LEVEL",
     subcategories: [
-      { id: "copywriting", label: "Copywriting", color: "bg-blue-100" },
-      { id: "landing-page", label: "Landing Page", color: "bg-pink-100" },
+      { id: "cet4", label: "CET-4", color: "bg-blue-100" },
+      { id: "cet6", label: "CET-6", color: "bg-pink-100" },
+      { id: "ielts6", label: "IELTS 6", color: "bg-green-100" },
+      { id: "ielts7", label: "IELTS 7", color: "bg-yellow-100" },
+      { id: "ielts8", label: "IELTS 8", color: "bg-purple-100" },
+      { id: "toefl", label: "TOEFL", color: "bg-red-100" },
     ],
   },
   {
-    id: "more",
-    label: "MORE",
+    id: "subject",
+    label: "SUBJECT",
     subcategories: [
-      { id: "retention", label: "Retention", color: "bg-green-100" },
-      { id: "brand", label: "Brand", color: "bg-purple-100" },
-      { id: "referral", label: "Referral", color: "bg-purple-200" },
-      { id: "creative", label: "Creative", color: "bg-yellow-100" },
+      { id: "math", label: "Math", color: "bg-blue-100" },
+      { id: "geography", label: "Geography", color: "bg-green-100" },
+      { id: "biology", label: "Biology", color: "bg-red-100" },
+      { id: "chemistry", label: "Chemistry", color: "bg-yellow-100" },
+      { id: "physics", label: "Physics", color: "bg-purple-100" },
+      { id: "history", label: "History", color: "bg-orange-100" },
     ],
   },
 ];
 
+const YOUTUBE_VIDEOS = youtubeVideos;
 const EXAMPLES = [
   {
     id: 1,
@@ -59,7 +68,7 @@ const MarketingExamples = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const filteredExamples = EXAMPLES.filter((example) => {
+  const filteredExamples = YOUTUBE_VIDEOS.filter((example) => {
     const matchesSearch = example.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
@@ -84,7 +93,7 @@ const MarketingExamples = () => {
           <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
             <Search className="w-4 h-4 text-white" />
           </div>
-          <h1 className="text-xl font-bold">MARKETING</h1>
+          <h1 className="text-xl font-bold">英语素材库</h1>
         </div>
 
         {/* Categories */}
@@ -113,14 +122,6 @@ const MarketingExamples = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Newsletter Section */}
-        <div className="mt-6 px-4">
-          <div className="bg-black text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
-            NEWSLETTER
-          </div>
-          {/* Add newsletter content here */}
         </div>
       </div>
 
