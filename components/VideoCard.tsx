@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
 import { Search } from "lucide-react";
-import ParagraphPage from "./ParagraphPage";
+import VideoLearningPage from "./VideoLearningPage";
 import { YoutubeVideo } from "@/app/types/YoutubeVideo";
 
 interface VideoCardProps {
@@ -54,14 +54,14 @@ export const VideoCard = ({ video }: VideoCardProps) => {
         onCancel={handleCancel}
         width={800}
       >
-        <img
+        {/* <img
           src={video.thumbnail_url}
           alt={video.title}
           className="w-full h-48 object-cover mb-4"
-        />
-        <p>{video.duration}</p>
+        /> */}
+
         <div>
-          <ParagraphPage />
+          <VideoLearningPage />
         </div>
       </Modal>
     </>
