@@ -48,7 +48,8 @@ export const VideoCard = ({ video }: VideoCardProps) => {
       </div>
 
       <Modal
-        title={video.title}
+        title={`${video.title} (ID: ${video.video_id})`}
+        // title={video.title}
         open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -61,7 +62,7 @@ export const VideoCard = ({ video }: VideoCardProps) => {
         /> */}
 
         <div>
-          <VideoLearningPage />
+          <VideoLearningPage videoId={video.video_id} />
         </div>
       </Modal>
     </>

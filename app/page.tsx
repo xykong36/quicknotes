@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import { VideoGrid } from "@/components/VideoGrid";
 import youtubeVideos from "@/data/youtube_videos.json";
 import { CATEGORIES } from "@/constants/categories";
+import Link from "next/link";
 
 const YOUTUBE_VIDEOS = youtubeVideos;
 
@@ -43,6 +44,9 @@ const HomePage = () => {
 
         {/* Categories */}
         <div className="space-y-6">
+          <div className="bg-cyan-400 text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
+            <Link href="/glossary">Glossary</Link>
+          </div>
           {CATEGORIES.map((category) => (
             <div key={category.id} className="px-4">
               <div className="bg-black text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
@@ -52,11 +56,13 @@ const HomePage = () => {
                 {category.subcategories.map((subcategory) => (
                   <button
                     key={subcategory.id}
-                    className={`px-3 py-1 rounded text-sm ${subcategory.color
-                      } transition-opacity ${selectedTags.includes(subcategory.label)
+                    className={`px-3 py-1 rounded text-sm ${
+                      subcategory.color
+                    } transition-opacity ${
+                      selectedTags.includes(subcategory.label)
                         ? "opacity-100"
                         : "opacity-80 hover:opacity-100"
-                      }`}
+                    }`}
                     onClick={() => toggleTag(subcategory.label)}
                   >
                     {subcategory.label}
@@ -82,7 +88,6 @@ const HomePage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-
 
           <VideoGrid videos={filteredExamples} />
         </div>

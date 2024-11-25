@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+
+      .player-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .speaker-icon {
+        font-size: 24px;
+        color: #4CAF50;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .speaker-icon:hover {
+        color: #45a049;
+      }
+
+      .speaker-icon.active {
+        color: #2196F3;
+      }
+
+      /* 添加动画效果 */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .speaker-icon.playing {
+        animation: pulse 1s infinite;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="player-container">
+      <audio id="audioPlayer" src="tt.mp3"></audio>
+      <i class="fas fa-volume-up speaker-icon" id="speakerIcon" onclick="togglePlay()"></i>
+    </div>
+
+    <script>
+      const audioPlayer = document.getElementById('audioPlayer');
+      const speakerIcon = document.getElementById('speakerIcon');
+
+      function togglePlay() {
+        if (audioPlayer.paused) {
+          audioPlayer.play();
+          speakerIcon.classList.add('active', 'playing');
+        } else {
+          audioPlayer.pause();
+          speakerIcon.classList.remove('active', 'playing');
+        }
+      }
+
+      // 音频播放结束时恢复图标状态
+      audioPlayer.addEventListener('ended', () => {
+        speakerIcon.classList.remove('active', 'playing');
+      });
+    </script>
+  </body>
+
+</html>
