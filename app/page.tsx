@@ -6,7 +6,7 @@ import { VideoGrid } from "@/components/VideoGrid";
 import youtubeVideos from "@/data/youtube_videos.json";
 import { CATEGORIES } from "@/constants/categories";
 import Link from "next/link";
-import { YoutubeVideo } from "@/types/YoutubeVideo";
+import { YoutubeVideo } from "@/app/types/YoutubeVideo";
 
 const YOUTUBE_VIDEOS = youtubeVideos as YoutubeVideo[];
 

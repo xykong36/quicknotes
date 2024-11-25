@@ -9,7 +9,7 @@ interface VideoCardProps {
 }
 
 const getTopicTagStyle = (topic: string) => {
-  const colors = {
+  const colors: { [key: string]: string } = {
     Technology: "bg-blue-500/50",
     "Climate Change": "bg-green-500/50",
     Education: "bg-yellow-500/50",
@@ -21,7 +21,7 @@ const getTopicTagStyle = (topic: string) => {
 };
 
 const getLevelTagStyle = (level: string) => {
-  const colors = {
+  const colors: { [key: string]: string } = {
     "CET-4": "bg-blue-300/50",
     "CET-6": "bg-pink-300/50",
     "IELTS 6": "bg-green-300/50",
