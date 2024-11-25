@@ -1,0 +1,28 @@
+{
+  "words": [
+    {
+      "id": "1",
+      "word": "ephemeral",
+      "translation": "短暂的，瞬息的",
+      "pronunciation": "ɪˈfem(ə)rəl",
+      "example": "The beauty of cherry blossoms is ephemeral, lasting only a few days.",
+      "difficulty": "hard",
+      "tags": [
+        "形容词",
+        "时间相关"
+      ]
+    },
+    {
+      "id": "2",
+      "word": "serendipity",
+      "translation": "意外发现美好事物",
+      "pronunciation": "ˌserənˈdɪpəti",
+      "example": "Meeting my best friend was pure serendipity.",
+      "difficulty": "medium",
+      "tags": [
+        "名词",
+        "情感相关"
+      ]
+    }
+  ]
+}
