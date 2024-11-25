@@ -1,0 +1,22 @@
+[
+  {
+    "term": "API",
+    "definition": "Application Programming Interface"
+  },
+  {
+    "term": "HTTP",
+    "definition": "Hypertext Transfer Protocol"
+  },
+  {
+    "term": "JSON",
+    "definition": "JavaScript Object Notation"
+  },
+  {
+    "term": "REST",
+    "definition": "Representational State Transfer"
+  },
+  {
+    "term": "URL",
+    "definition": "Uniform Resource Locator"
+  }
+]

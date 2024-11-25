@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Shuffle } from 'lucide-react';
+
+const IdiomGame = () => {
+const idioms = [
+{
+"idiom": "Bite the bullet",
+"right_chinese_translation": "咬紧牙关",
+"wrong_chinese_translation": "咬子弹"
+},
+{
+"idiom": "Break the ice",
+"right_chinese_translation": "打破僵局",
+"wrong_chinese_translation": "打碎冰块"
+},
+{
+"idiom": "Burn the midnight oil",
+"right_chinese_translation": "开夜车",
+"wrong_chinese_translation": "点燃午夜的油灯"
+}
+];
+
+const [currentIndex, setCurrentIndex] = useState(0);
+const [isCorrect, setIsCorrect] = useState(null);
+const [buttons, setButtons] = useState(shuffleButtons(0));
+
+function shuffleButtons(index) {
+const options = [
+{ text: idioms[index].right_chinese_translation, correct: true },
+{ text: idioms[index].wrong_chinese_translation, correct: false }
+];
+return options.sort(() => Math.random() - 0.5);
+}
+
+const handleAnswer = (correct) => {
+setIsCorrect(correct);
+setTimeout(() => {
+if (currentIndex < idioms.length - 1) { setCurrentIndex(prev=> prev + 1);
+  setButtons(shuffleButtons(currentIndex + 1));
+  setIsCorrect(null);
+  }
+  }, 1000);
+  };
+
+  const getButtonColor = (button) => {
+  if (isCorrect === null) return 'bg-slate-500 hover:bg-slate-600';
+  if (button.correct) return 'bg-green-500 hover:bg-green-600';
+  return 'bg-red-500 hover:bg-red-600';
+  };
+
+  return (
+  <div className="max-w-md mx-auto p-4">
+    <Card className="mb-4">
+      <CardHeader>
+        <CardTitle className="text-center flex items-center justify-between">
+          <span>English Idiom</span>
+          <Shuffle className="w-5 h-5" />
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="text-2xl text-center font-bold mb-4">
+          {idioms[currentIndex].idiom}
+        </p>
+        <div className="space-y-4">
+          {buttons.map((button, index) => (
+          <Button key={index} onClick={()=> handleAnswer(button.correct)}
+            disabled={isCorrect !== null}
+            className={`w-full text-lg ${getButtonColor(button)}`}
+            >
+            {button.text}
+          </Button>
+          ))}
+        </div>
+        <p className="text-sm text-center mt-4">
+          {currentIndex + 1} / {idioms.length}
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+  );
+  };
+
+  export default IdiomGame;

@@ -5,28 +5,79 @@ import { Search } from "lucide-react";
 import { VideoGrid } from "@/components/VideoGrid";
 import youtubeVideos from "@/data/youtube_videos.json";
 import { CATEGORIES } from "@/constants/categories";
+import Link from "next/link";
+import { YoutubeVideo } from "@/types/YoutubeVideo";
 
-const YOUTUBE_VIDEOS = youtubeVideos;
+const YOUTUBE_VIDEOS = youtubeVideos as YoutubeVideo[];
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+
+  const allowedVideoIds = [
+    "PnBMdJ5KeHk",
+    "WrxJKj71c9o",
+    "jFl9kFms7nA",
+    "Z6bxX3mcfJg",
+    "sgHHRVH0NFo",
+  ];
 
   const filteredExamples = YOUTUBE_VIDEOS.filter((video) => {
     const matchesSearch = video.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
-    const matchesTags =
-      selectedTags.length === 0 ||
-      // TODO: 添加视频标签
-      video.tags.some((tag) => selectedTags.includes(tag));
-    return matchesSearch && matchesTags;
+
+    const matchesTopic =
+      selectedTopics.length === 0 || selectedTopics.includes(video.topic_tag);
+
+    const matchesLevel =
+      selectedLevels.length === 0 || selectedLevels.includes(video.level_tag);
+
+    return (
+      allowedVideoIds.includes(video.video_id) &&
+      matchesSearch &&
+      matchesTopic &&
+      matchesLevel
+    );
   });
 
-  const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
+  const toggleTag = (tag: string, category: "topic" | "level") => {
+    if (category === "topic") {
+      setSelectedTopics((prev) =>
+        prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      );
+    } else {
+      setSelectedLevels((prev) =>
+        prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      );
+    }
+  };
+
+  const getTagStyles = (
+    tag: string,
+    category: "topic" | "level",
+    baseColor: string
+  ) => {
+    const isSelected =
+      category === "topic"
+        ? selectedTopics.includes(tag)
+        : selectedLevels.includes(tag);
+
+    return `
+      px-3 
+      py-1 
+      rounded 
+      text-sm 
+      ${baseColor} 
+      transition-all 
+      duration-200
+      ${
+        isSelected
+          ? "ring-2 ring-offset-2 ring-purple-500 shadow-md scale-105"
+          : "opacity-80 hover:opacity-100 hover:shadow-sm"
+      }
+    `;
   };
 
   return (
@@ -42,29 +93,78 @@ const HomePage = () => {
         </div>
 
         {/* Categories */}
-        <div className="space-y-6">
-          {CATEGORIES.map((category) => (
-            <div key={category.id} className="px-4">
-              <div className="bg-black text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
-                {category.label}
+        <div className="space-y-8">
+          <div className="bg-cyan-400 text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
+            <Link href="/glossary">Glossary</Link>
+          </div>
+
+          {/* Topics */}
+          <div className="px-4">
+            <div className="inline-flex items-center space-x-2 mb-3">
+              <div className="bg-black text-white text-sm font-bold py-1 px-2">
+                TOPIC
               </div>
-              <div className="flex flex-wrap gap-2">
-                {category.subcategories.map((subcategory) => (
+              {selectedTopics.length > 0 && (
+                <button
+                  onClick={() => setSelectedTopics([])}
+                  className="text-xs text-gray-500 hover:text-red-500"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.find(
+                (c) => c.id === "acquisition"
+              )?.subcategories.map((subcategory) => (
+                <button
+                  key={subcategory.id}
+                  onClick={() => toggleTag(subcategory.label, "topic")}
+                  className={getTagStyles(
+                    subcategory.label,
+                    "topic",
+                    subcategory.color
+                  )}
+                >
+                  {subcategory.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Levels */}
+          <div className="px-4">
+            <div className="inline-flex items-center space-x-2 mb-3">
+              <div className="bg-black text-white text-sm font-bold py-1 px-2">
+                LEVEL
+              </div>
+              {selectedLevels.length > 0 && (
+                <button
+                  onClick={() => setSelectedLevels([])}
+                  className="text-xs text-gray-500 hover:text-red-500"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.find((c) => c.id === "level")?.subcategories.map(
+                (subcategory) => (
                   <button
                     key={subcategory.id}
-                    className={`px-3 py-1 rounded text-sm ${subcategory.color
-                      } transition-opacity ${selectedTags.includes(subcategory.label)
-                        ? "opacity-100"
-                        : "opacity-80 hover:opacity-100"
-                      }`}
-                    onClick={() => toggleTag(subcategory.label)}
+                    onClick={() => toggleTag(subcategory.label, "level")}
+                    className={getTagStyles(
+                      subcategory.label,
+                      "level",
+                      subcategory.color
+                    )}
                   >
                     {subcategory.label}
                   </button>
-                ))}
-              </div>
+                )
+              )}
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
@@ -83,6 +183,14 @@ const HomePage = () => {
             />
           </div>
 
+          {/* Filter Stats */}
+          <div className="mb-4 text-sm text-gray-600">
+            Showing {filteredExamples.length} videos
+            {selectedTopics.length > 0 &&
+              ` for topics: ${selectedTopics.join(", ")}`}
+            {selectedLevels.length > 0 &&
+              ` at levels: ${selectedLevels.join(", ")}`}
+          </div>
 
           <VideoGrid videos={filteredExamples} />
         </div>

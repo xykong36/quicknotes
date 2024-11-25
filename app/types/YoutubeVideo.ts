@@ -8,4 +8,6 @@ export interface YoutubeVideo {
   description: string;
   accessibility_label: string;
   url: string;
+  topic_tag: string;
+  level_tag: string;
 }
