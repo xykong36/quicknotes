@@ -16,11 +16,9 @@ const allowedVideoIds = [
 export const VideoGrid = ({ videos }: VideoGridProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {videos
-        .filter((video) => allowedVideoIds.includes(video.video_id))
-        .map((video) => (
-          <VideoCard key={video.video_id} video={video} />
-        ))}
+      {videos.map((video) => (
+        <VideoCard key={video.video_id} video={video} />
+      ))}
     </div>
   );
 };
