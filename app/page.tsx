@@ -65,12 +65,12 @@ const HomePage = () => {
         : selectedLevels.includes(tag);
 
     return `
-      px-3 
-      py-1 
-      rounded 
-      text-sm 
-      ${baseColor} 
-      transition-all 
+      px-3
+      py-1
+      rounded
+      text-sm
+      ${baseColor}
+      transition-all
       duration-200
       ${
         isSelected
@@ -95,7 +95,7 @@ const HomePage = () => {
         {/* Categories */}
         <div className="space-y-8">
           <div className="bg-cyan-400 text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
-            <Link href="/glossary">Glossary</Link>
+            <Link href="/glossary">点击跳转到 单词本</Link>
           </div>
 
           {/* Topics */}
