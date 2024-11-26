@@ -1,5 +1,6 @@
 import { getWord, getWords } from "@/lib/words";
 import { notFound } from "next/navigation";
+import { Word } from "@/lib/types";
 
 interface PageProps {
   params: {
@@ -9,7 +10,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const words = await getWords();
-  return words.map((word) => ({
+  return words.map((word: Word) => ({
     word: word.word,
   }));
 }
@@ -20,6 +21,9 @@ export default async function WordPage({ params }: PageProps) {
   if (!word) {
     notFound();
   }
+
+  // 获取第一个例句，如果没有则返回空字符串
+  const firstExample = word.examples[0] ?? { text: "", translation: "" };
 
   return (
     <article className="max-w-2xl mx-auto">
@@ -38,7 +42,10 @@ export default async function WordPage({ params }: PageProps) {
 
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-2xl font-semibold mb-4">例句</h2>
-        <p className="italic">{word.example}</p>
+        <div>
+          <p className="italic">{firstExample.text}</p>
+          <p className="mt-2 text-gray-600">{firstExample.translation}</p>
+        </div>
       </div>
 
       {word.tags.length > 0 && (
@@ -51,6 +58,13 @@ export default async function WordPage({ params }: PageProps) {
               </span>
             ))}
           </div>
+        </div>
+      )}
+
+      {word.isPartOfExpression && (
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold mb-4">相关表达</h2>
+          <p className="text-gray-600">此单词是常用表达的一部分</p>
         </div>
       )}
     </article>
