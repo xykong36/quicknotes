@@ -3,19 +3,19 @@ import { notFound } from "next/navigation";
 
 interface PageProps {
   params: {
-    id: string;
+    word: string;
   };
 }
 
 export async function generateStaticParams() {
   const words = await getWords();
   return words.map((word) => ({
-    id: word.id,
+    word: word.word,
   }));
 }
 
 export default async function WordPage({ params }: PageProps) {
-  const word = await getWord(params.id);
+  const word = await getWord(params.word);
 
   if (!word) {
     notFound();

@@ -8,7 +8,7 @@ interface WordCardProps {
 export default function WordCard({ word }: WordCardProps) {
   return (
     <Link
-      href={`/glossary/${word.id}`}
+      href={`/glossary/${word.word}`}
       className="block p-6 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
     >
       <div className="flex justify-between items-start">

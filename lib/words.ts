@@ -1,16 +1,43 @@
-import { cache } from "react";
+import { createClient } from "@supabase/supabase-js";
 import { Word } from "./types";
-import path from "path";
-import { promises as fs } from "fs";
+import { Database } from "@app/types/Supabase";
 
-export const getWords = cache(async (): Promise<Word[]> => {
-  const filePath = path.join(process.cwd(), "data/words.json");
-  const data = await fs.readFile(filePath, "utf8");
-  const words = JSON.parse(data);
-  return words.words;
-});
+// Initialize Supabase client
+const supabase = createClient<Database>(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
 
-export async function getWord(id: string): Promise<Word | null> {
-  const words = await getWords();
-  return words.find((word) => word.id === id) || null;
+export const getWords = async (): Promise<Word[]> => {
+  const { data: words, error } = await supabase.from("words").select("*");
+  if (error) {
+    throw new Error(`Error fetching words: ${error.message}`);
+  }
+  return words || [];
+};
+
+export async function getWordById(id: string): Promise<Word | null> {
+  const { data: word, error } = await supabase
+    .from("words")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) {
+    console.error(`Error fetching word with id ${id}: ${error.message}`);
+    return null;
+  }
+  return word;
+}
+
+export async function getWord(spell: string): Promise<Word | null> {
+  const { data: word, error } = await supabase
+    .from("words")
+    .select("*")
+    .eq("word", spell)
+    .single();
+  if (error) {
+    console.error(`Error fetching word with word ${spell}: ${error.message}`);
+    return null;
+  }
+  return word;
 }

@@ -1,5 +1,8 @@
+"use client";
+
 import { getWords } from "@/lib/words";
 import WordCard from "@/components/WordCard";
+import { AddWordModal } from "@/components/AddWordModal";
 import { Suspense } from "react";
 
 async function WordList() {
@@ -18,6 +21,7 @@ export default function Home() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8">单词本</h1>
+      {/* <AddWordModal onSave={handleSaveWord} /> */}
       <Suspense fallback={<div>加载中...</div>}>
         <WordList />
       </Suspense>
