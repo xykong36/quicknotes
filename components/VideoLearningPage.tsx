@@ -1,18 +1,15 @@
-"use client";
-
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { EyeOff, Eye } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import subtitles from "@/data/subtitles.json";
 
 const highlightColors = [
-  "text-pink-600 font-medium",
-  "text-blue-600 font-medium",
-  "text-emerald-600 font-medium",
-  "text-purple-600 font-medium",
-  "text-amber-600 font-medium",
+  "text-emerald-600 font-medium", // 绿色
+  "text-orange-500 font-medium", // 橙色
+  "text-blue-500 font-medium", // 蓝色
+  "text-red-500 font-medium", // 红色
+  "text-pink-500 font-medium", // 粉色
 ];
 
 interface VideoLearningPageProps {
@@ -21,8 +18,6 @@ interface VideoLearningPageProps {
 
 const VideoLearningPage = ({ videoId }: VideoLearningPageProps) => {
   const videoRef = useRef<HTMLIFrameElement>(null);
-  const [showChinese, setShowChinese] = useState(true);
-  const [showEnglish, setShowEnglish] = useState(true);
 
   const handleTimeUpdate = (time: string) => {
     const [minutes, seconds] = time.split(":").map(Number);
@@ -52,7 +47,7 @@ const VideoLearningPage = ({ videoId }: VideoLearningPageProps) => {
       const regex = new RegExp(highlight, "gi");
       result = result.replace(
         regex,
-        `<span class="${color} hover:underline">${highlight}</span>`
+        `<span class="${color}">${highlight}</span>`
       );
     });
     return <div dangerouslySetInnerHTML={{ __html: result }} />;
@@ -66,9 +61,11 @@ const VideoLearningPage = ({ videoId }: VideoLearningPageProps) => {
   const subtitlesForVideo = getSubtitlesByVideoId(videoId);
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-7xl mx-auto px-4">
+      <h1 className="text-2xl font-bold mb-6">视频学习</h1>
+
       {/* Video Section */}
-      <div className="aspect-w-16 aspect-h-9 mb-10 max-w-4xl mx-auto h-[500px]">
+      <div className="aspect-w-16 aspect-h-9 mb-10 h-[500px]">
         <iframe
           ref={videoRef}
           className="w-full h-full rounded-lg"
@@ -78,63 +75,60 @@ const VideoLearningPage = ({ videoId }: VideoLearningPageProps) => {
         />
       </div>
 
-      {/* Controls */}
-      <div className="flex justify-end mb-4 space-x-2">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowEnglish(!showEnglish)}
-          className="flex items-center gap-2"
-        >
-          {showEnglish ? (
-            <EyeOff className="w-4 h-4" />
-          ) : (
-            <Eye className="w-4 h-4" />
-          )}
-          {showEnglish ? "Hide English" : "Show English"}
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowChinese(!showChinese)}
-          className="flex items-center gap-2"
-        >
-          {showChinese ? (
-            <EyeOff className="w-4 h-4" />
-          ) : (
-            <Eye className="w-4 h-4" />
-          )}
-          {showChinese ? "隐藏中文" : "显示中文"}
-        </Button>
-      </div>
+      {/* Subtitles Tabs */}
+      <Tabs defaultValue="chinese" className="w-full">
+        <TabsList className="mb-4">
+          <TabsTrigger value="chinese">对照中文，尝试开口说英文</TabsTrigger>
+          <TabsTrigger value="parallel">对照英文，排查卡壳的地方</TabsTrigger>
+        </TabsList>
 
-      {/* Subtitles Section */}
-      <ScrollArea className="h-[600px] rounded-md border">
-        <div className="p-4">
-          <div className="space-y-4">
-            {subtitlesForVideo.map((subtitle, index) => (
-              <Card
-                key={index}
-                className="w-full hover:shadow-lg transition-shadow duration-200 cursor-pointer"
-                onClick={() => handleTimeUpdate(subtitle.timestamp)}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-sm text-gray-500">
+        {/* Chinese First Tab */}
+        <TabsContent value="chinese">
+          <ScrollArea className="h-[600px] rounded-md border">
+            <div className="p-6 space-y-6">
+              {subtitlesForVideo.map((subtitle, index) => (
+                <Card
+                  key={`chinese-${index}`}
+                  className="hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+                  onClick={() => handleTimeUpdate(subtitle.timestamp)}
+                >
+                  <CardContent className="p-6">
+                    <div className="text-gray-600 mb-4">
+                      {highlightText(
+                        subtitle.cn,
+                        subtitle.highlights.cn,
+                        index
+                      )}
+                    </div>
+                    <div className="text-sm text-gray-400">
                       {subtitle.timestamp}
                     </div>
-                  </div>
-                  <div className="space-y-4">
-                    {showEnglish && (
-                      <div className="text-gray-900">
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
+        </TabsContent>
+
+        {/* Parallel Text Tab */}
+        <TabsContent value="parallel">
+          <ScrollArea className="h-[600px] rounded-md border">
+            <div className="p-6 space-y-6">
+              {subtitlesForVideo.map((subtitle, index) => (
+                <Card
+                  key={`parallel-${index}`}
+                  className="hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+                  onClick={() => handleTimeUpdate(subtitle.timestamp)}
+                >
+                  <CardContent className="p-6">
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
                         {highlightText(
                           subtitle.en,
                           subtitle.highlights.en,
                           index
                         )}
                       </div>
-                    )}
-                    {showChinese && (
                       <div className="text-gray-600">
                         {highlightText(
                           subtitle.cn,
@@ -142,20 +136,17 @@ const VideoLearningPage = ({ videoId }: VideoLearningPageProps) => {
                           index
                         )}
                       </div>
-                    )}
-                    {!showEnglish && !showChinese && (
-                      <div className="text-gray-400 italic text-center py-2">
-                        点击显示按钮查看字幕 / Click show button to view
-                        subtitles
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </ScrollArea>
+                    </div>
+                    <div className="text-sm text-gray-400 mt-2">
+                      {subtitle.timestamp}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
