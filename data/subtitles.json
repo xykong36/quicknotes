@@ -69,13 +69,13 @@
       {
         "timestamp": "01:01",
         "en": "But most migratory monarchs belong to the third and fourth generation.",
-        "cn": "但大多数迁徙的帝王蝶属于第三代和第四代。",
+        "cn": "但大多数迁徙的帝王蝶都是第三代和第四代。",
         "highlights": {
           "en": [
-            "migratory monarchs"
+            "migratory monarchs belong to"
           ],
           "cn": [
-            "迁徙的帝王蝶"
+            "迁徙的帝王蝶属于"
           ]
         }
       }
