@@ -23,16 +23,4 @@ export const CATEGORIES = [
       { id: "toefl", label: "TOEFL", color: "bg-red-100" },
     ],
   },
-  // {
-  //     id: "subject",
-  //     label: "SUBJECT",
-  //     subcategories: [
-  //         { id: "math", label: "Math", color: "bg-blue-100" },
-  //         { id: "geography", label: "Geography", color: "bg-green-100" },
-  //         { id: "biology", label: "Biology", color: "bg-red-100" },
-  //         { id: "chemistry", label: "Chemistry", color: "bg-yellow-100" },
-  //         { id: "physics", label: "Physics", color: "bg-purple-100" },
-  //         { id: "history", label: "History", color: "bg-orange-100" },
-  //     ],
-  // },
 ];
