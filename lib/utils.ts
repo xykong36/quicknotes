@@ -17,7 +17,7 @@ export const highlightText = (
     const regex = new RegExp(highlight, "gi");
     result = result.replace(
       regex,
-      `<span class="${colorClass}">${highlight}</span>`
+      `<u class="${colorClass}"><span class="${colorClass}">${highlight}</span></u>`
     );
   });
   return result;

@@ -8,7 +8,7 @@ interface HighlightedTextProps {
 
 export const HighlightedText: React.FC<HighlightedTextProps> = ({
   html,
-  className = "text-lg leading-relaxed",
+  className = "text-lg leading-relaxed font-bold",
 }) => {
   return <div className={className}>{parse(html)}</div>;
 };
