@@ -1,4 +1,3 @@
-// 移除 "use client" 指令，使其成为服务器组件
 import { getWords } from "@/lib/words";
 import WordCard from "@/components/WordCard";
 import { Suspense } from "react";

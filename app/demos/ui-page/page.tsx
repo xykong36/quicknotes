@@ -10,7 +10,12 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const ExampleToggle = ({ chinese, english }) => {
+interface ExampleToggleProps {
+  chinese: string;
+  english: string;
+}
+
+const ExampleToggle: React.FC<ExampleToggleProps> = ({ chinese, english }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -99,10 +104,10 @@ const LanguageLearningPage = () => {
               up <span className="text-orange-400">shut off my alarm</span>{" "}
               immediately and the first thing I{" "}
               <span className="text-pink-400">pull up</span> is my To do list
-              and my mind starts racing. And I don't want like that and I just
-              felt so <span className="text-blue-400">anxious</span> and I know
-              there's people that have it way more difficult than I do that have
-              hard family situations or financial situations.
+              and my mind starts racing. And I don&apos;t want like that and I
+              just felt so <span className="text-blue-400">anxious</span> and I
+              know there&apos;s people that have it way more difficult than I do
+              that have hard family situations or financial situations.
             </p>
           </div>
 
@@ -182,19 +187,9 @@ const LanguageLearningPage = () => {
               <div className="mt-4 space-y-2">
                 <div className="text-gray-300">相关表达：</div>
                 <ul className="list-disc ml-6 space-y-2 text-gray-300">
-                  <li>I'm overwhelmed with thoughts. 我满脑子都是想法</li>
-                  <li>My head is spinning.我感觉脑子都转不过来了</li>
+                  <li>I&apos;m overwhelmed with thoughts. 我满脑子都是想法</li>
+                  <li>My head is spinning. 我感觉脑子都转不过来了</li>
                 </ul>
-              </div>
-
-              <div className="mt-4 bg-gray-700/30 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-yellow-500">✍️ 解 析：</span>
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  "go a million miles a
-                  minute"字面意思是"每分钟行驶一百万英里"。"race"字面意思是"赛跑"。在日常口语中，这两个是一个夸张的说法，用来形容某人做事情非常快，尤其是思维或说话的速度。通常指，大脑思维快速跳跃或突然涌现大量想法或忧虑的情况。
-                </p>
               </div>
             </div>
 
@@ -208,7 +203,7 @@ const LanguageLearningPage = () => {
 
               <div className="mt-2">
                 <div className="text-gray-300">
-                  英文释义： A relaxed, less hectic morning where tasks at a
+                  英文释义：A relaxed, less hectic morning where tasks at a
                   leisurely pace.
                 </div>
               </div>
@@ -230,7 +225,7 @@ const LanguageLearningPage = () => {
               <div className="mt-4">
                 <div className="text-gray-300">相关表达：</div>
                 <ul className="list-disc ml-6 space-y-2 text-gray-300">
-                  <li>A lazy morning慵懒的早晨</li>
+                  <li>A lazy morning 慵懒的早晨</li>
                   <li>A hectic morning 忙碌的早晨</li>
                   <li>A chaotic morning 混乱/手忙脚乱的早晨</li>
                 </ul>

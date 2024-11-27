@@ -8,6 +8,13 @@ interface PageProps {
   };
 }
 
+export async function generateStaticParams() {
+  const words = await getWords();
+  return words.map((word: Word) => ({
+    word: word.word,
+  }));
+}
+
 export default async function WordPage({ params }: PageProps) {
   const word = await getWord(params.word);
 

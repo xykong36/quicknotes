@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { Modal } from "antd";
 import { Search } from "lucide-react";
-import VideoLearningPage from "./VideoLearningPage";
 import { YoutubeVideo } from "@/app/types/YoutubeVideo";
 import Link from "next/link";
 

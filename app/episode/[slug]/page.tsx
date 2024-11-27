@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useSearchParams } from "next/navigation";
 import { ChineseSection } from "@/components/ChineseSection";
 import { ParallelSection } from "@/components/ParallelSection";
 import { highlightText, combineSubtitles } from "@/lib/utils";
@@ -21,7 +20,6 @@ export default function LanguageLearningPage({
 }: {
   params: { slug: string };
 }) {
-  const searchParams = useSearchParams();
   const videoId = slug;
 
   const video = React.useMemo(() => {

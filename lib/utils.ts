@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Subtitle } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -8,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export const highlightText = (
   text: string,
   highlights: string[],
-  colors: string[]
+  colors: ReadonlyArray<string>
 ) => {
   let result = text;
   highlights.forEach((highlight, i) => {
