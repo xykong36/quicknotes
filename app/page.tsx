@@ -101,119 +101,131 @@ const HomePage = () => {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Fixed Left Sidebar */}
-      <div className="w-64 flex-shrink-0 bg-white border-r border-gray-200 overflow-y-auto">
-        {/* Logo and Title */}
-        <div className="flex items-center space-x-2 p-6 mb-4">
-          <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-            <Search className="w-4 h-4 text-white" />
-          </div>
-          <h1 className="text-xl font-bold">英语素材库</h1>
+      {loading ? (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
         </div>
-
-        {/* Categories */}
-        <div className="space-y-8">
-          <div className="bg-cyan-400 text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
-            <Link href="/glossary">点击跳转到 单词本</Link>
-          </div>
-
-          {/* Topics */}
-          <div className="px-4">
-            <div className="inline-flex items-center space-x-2 mb-3">
-              <div className="bg-black text-white text-sm font-bold py-1 px-2">
-                TOPIC
+      ) : error ? (
+        <div className="w-full h-full flex items-center justify-center text-red-500">
+          {error}
+        </div>
+      ) : (
+        <div className="flex w-full">
+          {/* Fixed Left Sidebar */}
+          <div className="w-64 flex-shrink-0 bg-white border-r border-gray-200 overflow-y-auto">
+            {/* Logo and Title */}
+            <div className="flex items-center space-x-2 p-6 mb-4">
+              <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                <Search className="w-4 h-4 text-white" />
               </div>
-              {selectedTopics.length > 0 && (
-                <button
-                  onClick={() => setSelectedTopics([])}
-                  className="text-xs text-gray-500 hover:text-red-500"
-                >
-                  Clear
-                </button>
-              )}
+              <h1 className="text-xl font-bold">英语素材库</h1>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {CATEGORIES.find(
-                (c) => c.id === "acquisition"
-              )?.subcategories.map((subcategory) => (
-                <button
-                  key={subcategory.id}
-                  onClick={() => toggleTag(subcategory.label, "topic")}
-                  className={getTagStyles(
-                    subcategory.label,
-                    "topic",
-                    subcategory.color
+
+            {/* Categories */}
+            <div className="space-y-8">
+              <div className="bg-cyan-400 text-white text-sm font-bold py-1 px-2 mb-3 inline-block">
+                <Link href="/glossary">点击跳转到 单词本</Link>
+              </div>
+
+              {/* Topics */}
+              <div className="px-4">
+                <div className="inline-flex items-center space-x-2 mb-3">
+                  <div className="bg-black text-white text-sm font-bold py-1 px-2">
+                    TOPIC
+                  </div>
+                  {selectedTopics.length > 0 && (
+                    <button
+                      onClick={() => setSelectedTopics([])}
+                      className="text-xs text-gray-500 hover:text-red-500"
+                    >
+                      Clear
+                    </button>
                   )}
-                >
-                  {subcategory.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Levels */}
-          <div className="px-4">
-            <div className="inline-flex items-center space-x-2 mb-3">
-              <div className="bg-black text-white text-sm font-bold py-1 px-2">
-                LEVEL
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {CATEGORIES.find(
+                    (c) => c.id === "acquisition"
+                  )?.subcategories.map((subcategory) => (
+                    <button
+                      key={subcategory.id}
+                      onClick={() => toggleTag(subcategory.label, "topic")}
+                      className={getTagStyles(
+                        subcategory.label,
+                        "topic",
+                        subcategory.color
+                      )}
+                    >
+                      {subcategory.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-              {selectedLevels.length > 0 && (
-                <button
-                  onClick={() => setSelectedLevels([])}
-                  className="text-xs text-gray-500 hover:text-red-500"
-                >
-                  Clear
-                </button>
-              )}
+
+              {/* Levels */}
+              <div className="px-4">
+                <div className="inline-flex items-center space-x-2 mb-3">
+                  <div className="bg-black text-white text-sm font-bold py-1 px-2">
+                    LEVEL
+                  </div>
+                  {selectedLevels.length > 0 && (
+                    <button
+                      onClick={() => setSelectedLevels([])}
+                      className="text-xs text-gray-500 hover:text-red-500"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {CATEGORIES.find((c) => c.id === "level")?.subcategories.map(
+                    (subcategory) => (
+                      <button
+                        key={subcategory.id}
+                        onClick={() => toggleTag(subcategory.label, "level")}
+                        className={getTagStyles(
+                          subcategory.label,
+                          "level",
+                          subcategory.color
+                        )}
+                      >
+                        {subcategory.label}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {CATEGORIES.find((c) => c.id === "level")?.subcategories.map(
-                (subcategory) => (
-                  <button
-                    key={subcategory.id}
-                    onClick={() => toggleTag(subcategory.label, "level")}
-                    className={getTagStyles(
-                      subcategory.label,
-                      "level",
-                      subcategory.color
-                    )}
-                  >
-                    {subcategory.label}
-                  </button>
-                )
-              )}
+          </div>
+
+          {/* Scrollable Right Content */}
+          <div className="flex-1 overflow-y-auto">
+            <div className="p-6">
+              {/* Search Bar */}
+              <div className="relative mb-8">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search examples..."
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
+              {/* Filter Stats */}
+              <div className="mb-4 text-sm text-gray-600">
+                Showing {filteredExamples.length} videos
+                {selectedTopics.length > 0 &&
+                  ` for topics: ${selectedTopics.join(", ")}`}
+                {selectedLevels.length > 0 &&
+                  ` at levels: ${selectedLevels.join(", ")}`}
+              </div>
+
+              <VideoGrid videos={filteredExamples} />
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scrollable Right Content */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-6">
-          {/* Search Bar */}
-          <div className="relative mb-8">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search examples..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-
-          {/* Filter Stats */}
-          <div className="mb-4 text-sm text-gray-600">
-            Showing {filteredExamples.length} videos
-            {selectedTopics.length > 0 &&
-              ` for topics: ${selectedTopics.join(", ")}`}
-            {selectedLevels.length > 0 &&
-              ` at levels: ${selectedLevels.join(", ")}`}
-          </div>
-
-          <VideoGrid videos={filteredExamples} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };
