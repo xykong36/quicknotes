@@ -5,13 +5,13 @@
 import { MongoClient, MongoClientOptions } from "mongodb";
 
 // Environment variables validation and type assertion
-const MONGODB_URL = process.env.MONGODB_URL;
-if (!MONGODB_URL) {
-  throw new Error("Missing required environment variable: MONGODB_URL");
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  throw new Error("Missing required environment variable: MONGODB_URI");
 }
 
-// Ensure MONGODB_URL is defined before using it
-const MONGO_CONNECTION_URL: string = MONGODB_URL;
+// Ensure MONGODB_URI is defined before using it
+const MONGO_CONNECTION_URL: string = MONGODB_URI;
 
 // MongoDB connection options
 const OPTIONS: MongoClientOptions = {
