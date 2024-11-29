@@ -3,8 +3,10 @@
 import React from "react";
 import { ChineseSection } from "@/components/ChineseSection";
 import { ParallelSection } from "@/components/ParallelSection";
+import { ExpressionsAnalysisSection } from "@/components/ExpressionsAnalysisSection";
 import { highlightText, combineSubtitles } from "@/lib/utils";
 import subtitles from "@/data/subtitles.json";
+import idiomData from "@/data/idiom.json";
 import type { VideoSubtitle } from "@/types";
 
 const colorClasses = [
@@ -64,6 +66,8 @@ export default function LanguageLearningPage({
         highlightedEnglish={highlightedContent.english}
         highlightedChinese={highlightedContent.chinese}
       />
+
+      <ExpressionsAnalysisSection data={idiomData} />
     </div>
   );
 }

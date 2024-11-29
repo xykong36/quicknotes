@@ -11,3 +11,7 @@ Accept: application/json
 ### Test Movies API with non-existent title (should return 404)
 GET {{baseUri}}/movies?title=NonExistentMovie12345
 Accept: application/json
+
+### Test Videos API
+GET {{baseUri}}/videos
+Accept: application/json

@@ -1,0 +1,70 @@
+{
+  "a slower morning": {
+    "meaning": {
+      "en": "A more relaxed and leisurely start to the day, with a less rushed pace than usual",
+      "zh": "比平常更加轻松悠闲的一个早晨，节奏更慢"
+    },
+    "usage_context": {
+      "en": "Often used to describe a peaceful or relaxed morning routine, typically on weekends or holidays",
+      "zh": "通常用于描述周末或假期时平和轻松的早晨日常"
+    },
+    "examples": [
+      {
+        "english": "On Sundays, I like to have a slower morning - sleeping in, making coffee, and reading the paper.",
+        "chinese": "周日的时候，我喜欢慢悠悠的早晨 - 睡个懒觉，煮杯咖啡，看看报纸。",
+        "context": {
+          "en": "Describing a relaxing weekend morning routine",
+          "zh": "描述轻松的周末早晨日常"
+        }
+      },
+      {
+        "english": "Since I'm working from home today, I can enjoy a slower morning without rushing to catch the train.",
+        "chinese": "因为今天在家工作，我可以享受一个从容的早晨，不用赶着去坐火车。",
+        "context": {
+          "en": "Describing a more relaxed start when there's no commute",
+          "zh": "描述不用通勤时更轻松的早晨"
+        }
+      }
+    ],
+    "synonymous_phrases": [
+      {
+        "en": "lazy morning",
+        "zh": "懒散的早晨"
+      },
+      {
+        "en": "relaxed start",
+        "zh": "轻松的开始"
+      },
+      {
+        "en": "easy morning",
+        "zh": "悠闲的早晨"
+      },
+      {
+        "en": "leisurely morning",
+        "zh": "从容的早晨"
+      }
+    ],
+    "related_expressions": [
+      {
+        "phrase": {
+          "en": "Take it easy",
+          "zh": "放轻松"
+        },
+        "meaning": {
+          "en": "To relax and avoid stress or hurry",
+          "zh": "放松心情，避免压力和匆忙"
+        }
+      },
+      {
+        "phrase": {
+          "en": "Ease into the day",
+          "zh": "慢慢开始这一天"
+        },
+        "meaning": {
+          "en": "To start the day gradually and without rushing",
+          "zh": "不慌不忙地开始新的一天"
+        }
+      }
+    ]
+  }
+}

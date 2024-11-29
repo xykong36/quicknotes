@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 interface HighlightedTextProps {
   html: string;
@@ -7,9 +8,7 @@ interface HighlightedTextProps {
 
 export const HighlightedText: React.FC<HighlightedTextProps> = ({
   html,
-  className = "text-lg leading-relaxed",
+  className = "text-lg leading-relaxed font-bold",
 }) => {
-  return (
-    <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
-  );
+  return <div className={className}>{parse(html)}</div>;
 };
