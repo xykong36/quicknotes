@@ -1,22 +1,36 @@
-// lib/mongodb.ts
-import { MongoClient } from "mongodb";
+/**
+ * MongoDB connection manager implementation
+ * Handles database connection lifecycle using singleton pattern
+ */
+import { MongoClient, MongoClientOptions } from "mongodb";
 
-if (!process.env.MONGODB_URL) {
-  throw new Error("Please add your Mongodb URL to .env");
+// Environment variables validation and type assertion
+const MONGODB_URL = process.env.MONGODB_URL;
+if (!MONGODB_URL) {
+  throw new Error("Missing required environment variable: MONGODB_URL");
 }
 
-const MONGODB_URL = process.env.MONGODB_URL;
+// Ensure MONGODB_URL is defined before using it
+const MONGO_CONNECTION_URL: string = MONGODB_URL;
 
-// 声明全局变量用于保存连接实例
+// MongoDB connection options
+const OPTIONS: MongoClientOptions = {
+  maxPoolSize: 10,
+  minPoolSize: 1,
+  maxIdleTimeMS: 30000,
+  connectTimeoutMS: 5000,
+};
+
+// 扩展 globalThis 类型
 declare global {
+  // eslint-disable-next-line no-var
   var mongoClient: MongoClient | undefined;
 }
 
-// 创建连接管理类
 class MongoConnection {
   private static instance: MongoConnection;
   private client: MongoClient | null = null;
-  private connecting = false;
+  private connectionPromise: Promise<MongoClient> | null = null;
 
   private constructor() {}
 
@@ -28,44 +42,72 @@ class MongoConnection {
   }
 
   public async getClient(): Promise<MongoClient> {
-    // 如果已经有连接，直接返回
-    if (this.client) {
-      return this.client;
-    }
-
-    // 如果正在连接中，等待连接完成
-    if (this.connecting) {
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      return this.getClient();
-    }
-
-    // 开发环境下复用全局连接
-    if (process.env.NODE_ENV === "development") {
-      if (global.mongoClient) {
-        this.client = global.mongoClient;
+    try {
+      if (this.client) {
         return this.client;
       }
-    }
 
-    try {
-      this.connecting = true;
-      this.client = await MongoClient.connect(MONGODB_URL);
+      if (this.connectionPromise) {
+        return await this.connectionPromise;
+      }
 
-      // 开发环境下保存到全局变量
+      if (process.env.NODE_ENV === "development" && globalThis.mongoClient) {
+        this.client = globalThis.mongoClient;
+        return this.client;
+      }
+
+      this.connectionPromise = MongoClient.connect(
+        MONGO_CONNECTION_URL,
+        OPTIONS
+      );
+      this.client = await this.connectionPromise;
+
       if (process.env.NODE_ENV === "development") {
-        global.mongoClient = this.client;
+        globalThis.mongoClient = this.client;
       }
 
       return this.client;
+    } catch (error) {
+      this.client = null;
+      this.connectionPromise = null;
+      throw error;
     } finally {
-      this.connecting = false;
+      this.connectionPromise = null;
     }
   }
 
   public async disconnect(): Promise<void> {
-    if (this.client) {
+    if (!this.client) {
+      return;
+    }
+
+    try {
       await this.client.close();
       this.client = null;
+
+      if (process.env.NODE_ENV === "development") {
+        globalThis.mongoClient = undefined;
+      }
+    } catch (error) {
+      console.error("Error closing MongoDB connection:", error);
+      throw error;
+    }
+  }
+
+  /**
+   * Check if client is connected
+   * Compatible with MongoDB Driver 6.x
+   */
+  public async isConnected(): Promise<boolean> {
+    try {
+      if (!this.client) {
+        return false;
+      }
+      // 在新版本中使用 db.admin().ping() 来检查连接状态
+      await this.client.db().admin().ping();
+      return true;
+    } catch {
+      return false;
     }
   }
 }
