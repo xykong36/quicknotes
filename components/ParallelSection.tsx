@@ -12,7 +12,7 @@ export const ParallelSection: React.FC<ParallelSectionProps> = ({
   highlightedChinese,
 }) => {
   return (
-    <div>
+    <div className="mb-12">
       <h2 className="text-xl font-medium mb-6 text-slate-800">
         二、对照英文，排查卡壳的地方
         <div className="mt-2 flex items-center gap-2 text-sm">

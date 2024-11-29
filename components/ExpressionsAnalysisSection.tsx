@@ -14,7 +14,7 @@ export const ExpressionsAnalysisSection: React.FC<
 
   return (
     <div className="mb-12">
-      <h2 className="text-xl font-medium mb-6 text-slate-800 flex items-center gap-2">
+      <h2 className="text-xl font-medium mt-6 mb-6 text-slate-800 flex items-center gap-2">
         三. 精读文本，积累地道实用生词和短语
         <span className="ml-2 text-base text-slate-500">
           😊学习母语者地道的表达。坚持每天积累一点点，你会惊讶于自己的词汇量增长速度。
