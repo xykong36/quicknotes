@@ -1,19 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { VideoGrid } from "@/components/VideoGrid";
-import youtubeVideos from "@/data/youtube_videos.json";
 import { CATEGORIES } from "@/constants/categories";
 import Link from "next/link";
 import { YoutubeVideo } from "@/app/types/YoutubeVideo";
 
-const YOUTUBE_VIDEOS = youtubeVideos as YoutubeVideo[];
-
 const HomePage = () => {
+  const [videos, setVideos] = useState<YoutubeVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch("/api/videos");
+        if (!response.ok) {
+          throw new Error("Failed to fetch videos");
+        }
+        const data = await response.json();
+        setVideos(data.videos);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
 
   const allowedVideoIds = [
     "PnBMdJ5KeHk",
@@ -23,7 +42,7 @@ const HomePage = () => {
     "sgHHRVH0NFo",
   ];
 
-  const filteredExamples = YOUTUBE_VIDEOS.filter((video) => {
+  const filteredExamples = videos.filter((video) => {
     const matchesSearch = video.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
