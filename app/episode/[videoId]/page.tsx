@@ -18,12 +18,10 @@ const colorClasses = [
 ] as const;
 
 export default function LanguageLearningPage({
-  params: { slug },
+  params: { videoId },
 }: {
-  params: { slug: string };
+  params: { videoId: string };
 }) {
-  const videoId = slug;
-
   const video = React.useMemo(() => {
     return (subtitles as VideoSubtitle[]).find((v) => v.video_id === videoId);
   }, [videoId]);
@@ -35,13 +33,6 @@ export default function LanguageLearningPage({
   }, [video]);
 
   const highlightedContent = React.useMemo(() => {
-    // Debug logs
-    // console.log("highlights", highlights);
-    // console.log("text.cn", text.cn, "highlights.cn", highlights.cn);
-    // console.log(
-    //   "highlightText(text.cn, highlights.cn, colorClasses)",
-    //   highlightText(text.cn, highlights.cn, colorClasses)
-    // );
     return {
       english: highlightText(text.en, highlights.en, colorClasses),
       chinese: highlightText(text.cn, highlights.cn, colorClasses),
