@@ -113,6 +113,9 @@ export async function GET() {
     const client = await mongoConnection.getClient();
     const db = client.db("quicknotes");
 
+    const url = new URL(request.url);
+    const videoId = url.searchParams.get("videoId");
+
     const transcripts = await db.collection("transcripts").find({}).toArray();
 
     return NextResponse.json(transcripts);
