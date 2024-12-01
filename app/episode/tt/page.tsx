@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { Transcript } from "@/types/transcript";
+import type { Transcript, Subtitle } from "@/types/transcript";
 
 function combineSubtitles(subtitles: Subtitle[]) {
   return {
