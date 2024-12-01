@@ -11,6 +11,7 @@ export function combineSubtitles(subtitles: Subtitle[]) {
 }
 
 async function getTranscript(videoId: string) {
+  console.log(videoId);
   const response = await fetch(`/api/transcripts/jFl9kFms7nA`);
   if (!response.ok) {
     throw new Error("Failed to fetch transcript");
