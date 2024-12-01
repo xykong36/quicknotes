@@ -1,38 +1,26 @@
-// app/api/videos/route.ts
-import { NextResponse } from "next/server";
-import MongoConnection from "@/lib/mongodb";
+import { VideosService } from "@/services/videoService";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
-  const mongoConnection = MongoConnection.getInstance();
-
+export async function GET(req: NextRequest) {
   try {
-    // 获取数据库连接
-    const client = await mongoConnection.getClient();
-    const database = client.db("quicknotes");
-    const videos = database.collection("videos");
+    const videosService = new VideosService();
+    const { searchParams } = new URL(req.url);
+    const videoId = searchParams.get('videoId');
 
-    // 获取所有视频数据
-    const allVideos = await videos.find({}).toArray();
-
-    return NextResponse.json(
-      {
-        message: "Videos retrieved successfully",
-        videos: allVideos,
-      },
-      { status: 200 }
-    );
+    if (videoId) {
+      const video = await videosService.findById(videoId);
+      if (!video) {
+        return NextResponse.json({ error: 'Video not found' }, { status: 404 });
+      }
+      return NextResponse.json({ video });
+    } else {
+      const videos = await videosService.findAll();
+      return NextResponse.json({ videos });
+    }
   } catch (error) {
-    console.error("Database error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: 'Failed to fetch videos' },
       { status: 500 }
     );
   }
 }
-
-// 可选：在应用关闭时断开连接
-process.on("SIGTERM", async () => {
-  const mongoConnection = MongoConnection.getInstance();
-  await mongoConnection.disconnect();
-  process.exit(0);
-});

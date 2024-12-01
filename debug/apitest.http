@@ -16,6 +16,10 @@ Accept: application/json
 GET {{baseUri}}/videos
 Accept: application/json
 
+### Test Videos API with videoId
+GET {{baseUri}}/videos?videoId=PnBMdJ5KeHk
+Accept: application/json
+
 ### Test Videos API
 GET {{baseUri}}/expressions
 Accept: application/json
