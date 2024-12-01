@@ -3,7 +3,7 @@
 import React from "react";
 import type { Transcript } from "@/types/transcript";
 
-export function combineSubtitles(subtitles: Subtitle[]) {
+function combineSubtitles(subtitles: Subtitle[]) {
   return {
     en: subtitles.map((s) => s.en).join(" "),
     cn: subtitles.map((s) => s.cn).join(""),
