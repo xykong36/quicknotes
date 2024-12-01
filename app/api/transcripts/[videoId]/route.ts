@@ -1,40 +1,25 @@
+import { TranscriptService } from "@/services/transcriptService";
 import { NextResponse } from "next/server";
-import MongoConnection from "@/lib/mongodb";
 
-export async function GET(request) {
-  const mongoConnection = MongoConnection.getInstance();
-
+export async function GET(
+  request: Request,
+  { params }: { params: { videoId: string } }
+) {
   try {
-    // Get videoId from URL parameters
-    const url = new URL(request.url);
-    const videoId = url.searchParams.get("videoId");
+    const transcriptService = new TranscriptService();
+    const transcript = await transcriptService.findById(params.videoId);
 
-    // Validate videoId
-    if (!videoId) {
+    if (!transcript) {
       return NextResponse.json(
-        { error: "videoId is required" },
-        { status: 400 }
+        { error: "Transcript not found" },
+        { status: 404 }
       );
     }
 
-    // Connect to MongoDB and fetch the video
-    const client = await mongoConnection.getClient();
-    const db = client.db("quicknotes");
-
-    const videoTranscript = await db
-      .collection("transcripts")
-      .findOne({ video_id: videoId });
-
-    // Check if video exists
-    if (!videoTranscript) {
-      return NextResponse.json({ error: "Video not found" }, { status: 404 });
-    }
-
-    return NextResponse.json(video);
+    return NextResponse.json({ transcript });
   } catch (error) {
-    console.error("Error:", error);
     return NextResponse.json(
-      { error: "Failed to fetch video" },
+      { error: "Failed to fetch transcript" },
       { status: 500 }
     );
   }
