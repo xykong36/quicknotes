@@ -18,6 +18,7 @@ export async function GET(
 
     return NextResponse.json({ transcript });
   } catch (error) {
+    console.error("Failed to fetch transcript:", error);
     return NextResponse.json(
       { error: "Failed to fetch transcript" },
       { status: 500 }

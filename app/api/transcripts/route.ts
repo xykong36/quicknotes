@@ -7,6 +7,7 @@ export async function GET() {
     const transcripts = await transcriptService.findAll();
     return NextResponse.json({ transcripts });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Failed to fetch transcripts" },
       { status: 500 }
