@@ -28,10 +28,6 @@ Accept: application/json
 GET {{baseUri}}/transcripts
 Accept: application/json
 
-### Test transcript with videoId
-GET {{baseUri}}/transcripts?videoId=PnBMdJ5KeHk
-Accept: application/json
-
 ### Test transcript with videoId dynamic route
 GET {{baseUri}}/transcripts/PnBMdJ5KeHk
 Content-Type: application/json
