@@ -1,0 +1,6 @@
+进行音频切割的步骤
+
+1. use yt_dlp download youtube audio -> batch.py
+2. use youtube transcript API to fetch the transcript of the video -> demo.ipynb
+3. use OpenAI API to combine transcript into senstences and get the start and end time of each sentence -> 目前是手动
+4. use pydub to split audio and generate segments mp3 files -> demo.ipynb function
