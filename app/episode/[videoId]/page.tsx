@@ -8,6 +8,7 @@ import { highlightText, combineSubtitles } from "@/lib/utils";
 import subtitles from "@/data/subtitles.json";
 import idiomData from "@/data/idiom.json";
 import type { VideoSubtitle } from "@/types";
+import SubtitlePlayer from "@/components/SubtitlePlayer";
 
 const colorClasses = [
   "text-emerald-600",
@@ -59,6 +60,8 @@ export default function LanguageLearningPage({
       />
 
       <ExpressionsAnalysisSection data={idiomData} />
+
+      <SubtitlePlayer />
     </div>
   );
 }
