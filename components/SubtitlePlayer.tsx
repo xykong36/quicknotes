@@ -1,13 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  Repeat,
-  Fast,
-  Gauge,
-} from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Play, Pause, Volume2, VolumeX, Repeat, Gauge } from "lucide-react";
+
 interface Subtitle {
   timestamp: string;
   en: string;
@@ -48,61 +41,38 @@ const SubtitlePlayer = () => {
   const [playbackRate, setPlaybackRate] = useState<number>(1);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressIntervalRef = useRef<NodeJS.Timer>();
-
   const playbackRates = [1, 1.25, 1.5, 1.75, 2];
-
-  useEffect(() => {
-    return () => {
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-      }
-    };
-  }, []);
-
-  const updateProgress = () => {
-    if (audioRef.current) {
-      const currentTime = audioRef.current.currentTime;
-      const duration = audioRef.current.duration;
-      setProgress(currentTime);
-      setDuration(duration);
-    }
-  };
 
   const playSegment = (index: number) => {
     if (audioRef.current) {
       audioRef.current.pause();
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-      }
     }
 
     const audio = new Audio(`/static/audio/segment_${index + 1}.mp3`);
     audioRef.current = audio;
+
+    // Configure audio properties
     audio.volume = isMuted ? 0 : volume;
     audio.loop = isLooping;
     audio.playbackRate = playbackRate;
 
-    audio.onloadedmetadata = () => {
-      setDuration(audio.duration);
-    };
-
-    audio.onended = () => {
+    // Set up event listeners
+    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
+    audio.addEventListener("timeupdate", () => setProgress(audio.currentTime));
+    audio.addEventListener("ended", () => {
       if (!isLooping) {
         if (currentIndex < subtitles.length - 1) {
           setCurrentIndex(currentIndex + 1);
+          playSegment(currentIndex + 1);
         } else {
           setIsPlaying(false);
           setCurrentIndex(0);
           setProgress(0);
         }
       }
-    };
-
-    audio.play().then(() => {
-      progressIntervalRef.current = setInterval(updateProgress, 50);
     });
 
+    audio.play();
     setIsPlaying(true);
   };
 
@@ -133,8 +103,8 @@ const SubtitlePlayer = () => {
   };
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current?.pause();
+    if (isPlaying && audioRef.current) {
+      audioRef.current.pause();
       setIsPlaying(false);
     } else {
       playSegment(currentIndex);

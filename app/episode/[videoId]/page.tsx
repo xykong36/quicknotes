@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ChineseSection } from "@/components/ChineseSection";
 import { ParallelSection } from "@/components/ParallelSection";
 import { ExpressionsAnalysisSection } from "@/components/ExpressionsAnalysisSection";
@@ -8,8 +8,6 @@ import { highlightText, combineSubtitles } from "@/lib/utils";
 import subtitles from "@/data/subtitles.json";
 import idiomData from "@/data/idiom.json";
 import type { VideoSubtitle } from "@/types";
-import AudioSection from "@/components/AudioSection";
-import AudioPlayer from "@/components/AudioPlayer";
 import SubtitlePlayer from "@/components/SubtitlePlayer";
 
 const colorClasses = [
@@ -63,8 +61,6 @@ export default function LanguageLearningPage({
 
       <ExpressionsAnalysisSection data={idiomData} />
 
-      {/* <AudioSection /> */}
-      <AudioPlayer />
       <SubtitlePlayer />
     </div>
   );
