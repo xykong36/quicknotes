@@ -1,12 +1,13 @@
+# main.py
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from .models import YouTubeURL, YouTubeResponse
 from .config import get_settings
+from .utils import extract_video_id, get_transcript, download_audio
 
 app = FastAPI()
 settings = get_settings()
 
-# 配置 CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
@@ -19,20 +20,29 @@ app.add_middleware(
 @app.post("/api/youtube", response_model=YouTubeResponse)
 async def process_youtube_url(youtube_data: YouTubeURL):
     try:
-        # 打印接收到的 URL
-        print(f"Received YouTube URL: {youtube_data.url}")
-
-        # 这里可以添加更多的 URL 处理逻辑
+        print(youtube_data.start_timestamp)
+        print(youtube_data.end_timestamp)
+        video_id = extract_video_id(youtube_data.url)
+        transcript = get_transcript(video_id)
+        filtered_transcript = [
+            t for t in transcript
+            if int(youtube_data.start_timestamp) <= t['start'] <= int(youtube_data.end_timestamp)
+        ]
+        audio_path = download_audio(video_id)
 
         return YouTubeResponse(
             success=True,
-            message="URL received successfully"
+            message="Processing completed successfully",
+            video_id=video_id,
+            audio_path=audio_path,
+            start_timestamp=youtube_data.start_timestamp,
+            end_timestamp=youtube_data.end_timestamp,
+            transcript=filtered_transcript
         )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/health")

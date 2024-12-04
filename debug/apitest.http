@@ -1,4 +1,5 @@
 @baseUri=http://localhost:3000/api 
+@serverUri=http://localhost:8000/api
 
 ### Test Movies API with specific title
 GET {{baseUri}}/movies?title=The Great Train Robbery
@@ -31,3 +32,19 @@ Accept: application/json
 ### Test transcript with videoId dynamic route
 GET {{baseUri}}/transcripts/PnBMdJ5KeHk
 Content-Type: application/json
+
+### Test POST YouTube URL for processing
+POST {{serverUri}}/youtube
+Content-Type: application/json
+
+{
+    "url": "https://www.youtube.com/watch?v=PnBMdJ5KeHk"
+}
+
+### Test POST YouTube URL with invalid format
+POST {{serverUri}}/youtube
+Content-Type: application/json
+
+{
+    "url": "invalid-url"
+}
