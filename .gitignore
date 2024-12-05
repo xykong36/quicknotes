@@ -38,3 +38,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore all __pycache__ directories
+**/__pycache__/
+
+# Ignore all .pyc files
+*.pyc
+
+# Specifically ignore __pycache__ directories and .pyc files in server/app
+server/app/__pycache__/
+server/app/**/*.pyc
