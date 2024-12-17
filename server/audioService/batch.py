@@ -19,6 +19,8 @@ def setup_yt_dlp_options(output_dir: str) -> Dict:
         'verbose': False,
         'quiet': True,
         'no_warnings': True,
+        'proxy': 'socks5://127.0.0.1:1080',
+        'socket_timeout': 30,
     }
 
 
