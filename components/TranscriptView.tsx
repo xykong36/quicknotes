@@ -14,16 +14,17 @@ function HighlightedText({
   text: string;
   highlights: string[];
 }) {
-  const pattern = new RegExp(
-    `(${highlights
-      .map((str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-      .join("|")})`,
-    "g"
+  const parts = text.split(
+    new RegExp(
+      `(${highlights
+        .map((str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .join("|")})`,
+      "g"
+    )
   );
-  const parts = text.split(pattern);
 
   return (
-    <p className="text-lg leading-relaxed">
+    <p className="text-lg leading-relaxed font-bold">
       {parts.map((part, i) => {
         const highlightIndex = highlights.indexOf(part);
         return highlightIndex !== -1 ? (
@@ -49,24 +50,29 @@ export default function TranscriptView({
   highlights: { en: string[]; cn: string[] };
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 space-y-8">
-      <section>
-        <h2 className="text-xl font-semibold mb-4">English</h2>
-        <HighlightedText text={transcript.en} highlights={highlights.en} />
-      </section>
-
-      <section>
-        <h2 className="text-xl font-semibold mb-4">中文</h2>
+    <div className="space-y-8">
+      <section className="p-6">
         <HighlightedText text={transcript.cn} highlights={highlights.cn} />
       </section>
 
-      <section className="border-t pt-6">
+      <section className="p-6">
+        <div className="flex gap-8">
+          <div className="w-2/3">
+            <HighlightedText text={transcript.en} highlights={highlights.en} />
+          </div>
+          <div className="w-1/3 border-l pl-8">
+            <HighlightedText text={transcript.cn} highlights={highlights.cn} />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-lg font-medium mb-4">Vocabulary</h3>
         <div className="grid grid-cols-2 gap-4">
           {highlights.en.map((highlight, index) => (
             <div
               key={highlight}
-              className="rounded-lg border p-3 flex justify-between items-center"
+              className="rounded-lg border p-3 flex justify-between items-center font-bold"
             >
               <span className={TEXT_COLORS[index % TEXT_COLORS.length]}>
                 {highlight}
