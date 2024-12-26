@@ -9,6 +9,5 @@ export const TEXT_COLORS = [
   "text-indigo-600 underline decoration-indigo-600/30",
   "text-lime-600 underline decoration-lime-600/30",
   "text-pink-500 underline decoration-pink-500/30",
-  "text-yellow-600 underline decoration-yellow-600/30",
   "text-violet-600 underline decoration-violet-600/30",
 ] as const;
