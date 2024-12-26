@@ -9,3 +9,13 @@ export interface Transcript {
   video_id: string;
   subtitles: Subtitle[];
 }
+
+export interface TranscriptData {
+  en: string;
+  cn: string;
+}
+
+export interface HighlightData {
+  en: string[];
+  cn: string[];
+}

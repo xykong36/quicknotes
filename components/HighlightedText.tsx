@@ -1,14 +1,24 @@
-import React from "react";
-import parse from "html-react-parser";
+import { useHighlightedText } from "@/hooks/useHighlightedText";
+import { HighlightedSpan } from "./HighlightedSpan";
 
 interface HighlightedTextProps {
-  html: string;
-  className?: string;
+  text: string;
+  highlights: string[];
 }
 
-export const HighlightedText: React.FC<HighlightedTextProps> = ({
-  html,
-  className = "text-lg leading-relaxed font-bold",
-}) => {
-  return <div className={className}>{parse(html)}</div>;
+export const HighlightedText = ({ text, highlights }: HighlightedTextProps) => {
+  const parts = useHighlightedText(text, highlights);
+
+  return (
+    <p className="text-lg leading-relaxed font-bold">
+      {parts.map((part, i) => {
+        const highlightIndex = highlights.indexOf(part);
+        return highlightIndex !== -1 ? (
+          <HighlightedSpan key={i} text={part} colorIndex={highlightIndex} />
+        ) : (
+          <span key={i}>{part}</span>
+        );
+      })}
+    </p>
+  );
 };
