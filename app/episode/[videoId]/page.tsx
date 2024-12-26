@@ -53,13 +53,6 @@ export default function LanguageLearningPage({
     <div className="min-h-screen bg-white text-slate-900 p-8">
       <h1 className="text-4xl font-bold mb-2">Video {videoId}</h1>
 
-      <ChineseSection highlightedText={highlightedContent.chinese} />
-
-      <ParallelSection
-        highlightedEnglish={highlightedContent.english}
-        highlightedChinese={highlightedContent.chinese}
-      />
-
       <ExpressionsAnalysisSection data={ep4ExpressionsData.expressions} />
 
       <SubtitlePlayer />
