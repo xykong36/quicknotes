@@ -1,9 +1,8 @@
 // app/api/videos/route.ts
-import { Videos } from '@/lib/db/videos';
-import { Video } from '@/types/video';
+import { Videos } from "@/lib/db/videos";
+import { Video } from "@/types/video";
 
 export class VideosService {
-
   async findAll(): Promise<Video[]> {
     return await Videos.findAll();
   }
@@ -12,4 +11,3 @@ export class VideosService {
     return await Videos.findById(videoId);
   }
 }
-

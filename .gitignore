@@ -48,3 +48,4 @@ next-env.d.ts
 # Specifically ignore __pycache__ directories and .pyc files in server/app
 server/app/__pycache__/
 server/app/**/*.pyc
+server/audioService/downloads/

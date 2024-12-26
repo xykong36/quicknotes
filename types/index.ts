@@ -13,35 +13,42 @@ export interface VideoSubtitle {
   subtitle: Subtitle[];
 }
 
-export interface IdiomData {
-  meaning: {
-    en: string;
-    zh: string;
-  };
-  usage_context: {
-    en: string;
-    zh: string;
-  };
-  examples: Array<{
-    english: string;
-    chinese: string;
-    context: {
-      en: string;
-      zh: string;
-    };
-  }>;
-  synonymous_phrases: Array<{
-    en: string;
-    zh: string;
-  }>;
-  related_expressions: Array<{
-    phrase: {
-      en: string;
-      zh: string;
-    };
-    meaning: {
-      en: string;
-      zh: string;
-    };
-  }>;
+// Basic sentence structure that appears in multiple places
+interface Sentence {
+  sentence: string;
+  sentence_cn: string;
+  source: string;
+}
+
+// Structure for synonymous phrases
+interface SynonymousPhrase {
+  text: string;
+  translation: string;
+  meaning: string;
+  usage_context_en: string;
+  usage_context_cn: string;
+  sample_sentences: Sentence[];
+}
+
+// Structure for related expressions
+interface RelatedExpression {
+  text: string;
+  translation: string;
+  meaning: string;
+  usage_context_en: string;
+  usage_context_cn: string;
+  sample_sentences: Sentence[];
+}
+
+// Main expression interface that combines all components
+interface Expression {
+  expression_id: string;
+  text: string;
+  translation: string;
+  meaning_en: string;
+  usage_context_en: string;
+  usage_context_cn: string;
+  sample_sentences: Sentence[];
+  synonymous_phrases: SynonymousPhrase[];
+  related_expressions: RelatedExpression[];
 }

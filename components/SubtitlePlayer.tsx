@@ -48,7 +48,7 @@ const SubtitlePlayer = () => {
       audioRef.current.pause();
     }
 
-    const audio = new Audio(`/static/audio/segment_${index + 1}.mp3`);
+    const audio = new Audio(`/audio/segment_${index + 1}.mp3`);
     audioRef.current = audio;
 
     // Configure audio properties

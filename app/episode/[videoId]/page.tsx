@@ -4,9 +4,10 @@ import React from "react";
 import { ChineseSection } from "@/components/ChineseSection";
 import { ParallelSection } from "@/components/ParallelSection";
 import { ExpressionsAnalysisSection } from "@/components/ExpressionsAnalysisSection";
+
 import { highlightText, combineSubtitles } from "@/lib/utils";
 import subtitles from "@/data/subtitles.json";
-import idiomData from "@/data/idiom.json";
+import ep4ExpressionsData from "@/data/local/ep4-expressions.json";
 import type { VideoSubtitle } from "@/types";
 import SubtitlePlayer from "@/components/SubtitlePlayer";
 
@@ -59,7 +60,7 @@ export default function LanguageLearningPage({
         highlightedChinese={highlightedContent.chinese}
       />
 
-      <ExpressionsAnalysisSection data={idiomData} />
+      <ExpressionsAnalysisSection data={ep4ExpressionsData.expressions} />
 
       <SubtitlePlayer />
     </div>
