@@ -1,0 +1,554 @@
+{
+  "episode04": {
+    "full_transcript": {
+      "en": "It's a way to improve your self-concept, and what you do is you just write out \"I am\" statements. So could be physical, it could be internal like \"I'm smart, I'm funny, I'm ambitious, I'm driven.\" Writing things out helps so much - if I don't write it out like I will never think about it again cuz my brain's just like overloaded all the time. This might seem like a really trivial exercise, truly writing things down like this is what works the most. At least not even just for me but it's like a scientific fact - if you write things out, it's more likely to be true.",
+      "cn": "这是一种提升自我认知的方法，你要做的就是写下\"我是\"的陈述句。这些陈述可以是关于外表的，也可以是内在的，比如\"我很聪明、我很幽默、我很有抱负、我很有干劲\"。把事情写下来真的很有帮助，如果我不写下来的话，我就再也不会去想它了，因为我的大脑总是处于超负荷状态。这可能看起来像是一个很简单的练习，但说实话，这样把事情写下来是最有效的方法。不仅对我来说是这样，这简直就是一个科学事实，如果你把事情写下来，它就更有可能成为现实。"
+    },
+    "highlights": {
+      "en": [
+        "improve your self-concept",
+        "write out \"I am\" statements",
+        "physical",
+        "internal",
+        "ambitious",
+        "driven",
+        "a really trivial exercise",
+        "works the most",
+        "scientific fact"
+      ],
+      "cn": [
+        "提升自我认知",
+        "写下\"我是\"的陈述句",
+        "关于外表的",
+        "内在的",
+        "很有抱负",
+        "很有干劲",
+        "一个很简单的练习",
+        "最有效的方法",
+        "科学事实"
+      ]
+    },
+    "expressions": [
+      {
+        "expression_id": "E001",
+        "text": "improve your self-concept",
+        "translation": "提升自我认知",
+        "meaning_en": "To enhance one's understanding and perception of oneself, including beliefs about one's abilities, worth, and potential",
+        "usage_context_en": "Commonly used in personal development, psychology, and self-help contexts when discussing mental health and personal growth",
+        "usage_context_cn": "在个人发展、心理学和自助提升场景中使用，特别是讨论心理健康和个人成长时",
+        "sample_sentences": [
+          {
+            "sentence": "Regular meditation can help improve your self-concept and boost confidence",
+            "sentence_cn": "规律的冥想可以帮助提升自我认知并增强自信",
+            "source": "Journal of Positive Psychology, 2023"
+          },
+          {
+            "sentence": "Students who improve their self-concept often perform better academically",
+            "sentence_cn": "提升自我认知的学生往往在学业上表现更好",
+            "source": "Educational Psychology Review, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "enhance self-image",
+            "translation": "提升自我形象",
+            "meaning": "To better one's mental picture of oneself",
+            "usage_context_en": "Professional counseling and therapy settings",
+            "usage_context_cn": "专业咨询和治疗场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "This workshop aims to help participants enhance their self-image",
+                "sentence_cn": "这个工作坊旨在帮助参与者提升自我形象",
+                "source": "Mental Health Today, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "build self-esteem",
+            "translation": "建立自尊心",
+            "meaning": "To develop a healthy sense of self-worth",
+            "usage_context_en": "Personal development and therapeutic contexts",
+            "usage_context_cn": "个人发展和心理治疗场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Parents play a crucial role in helping children build self-esteem",
+                "sentence_cn": "父母在帮助孩子建立自尊心方面起着关键作用",
+                "source": "Child Development Journal, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E002",
+        "text": "write out statements",
+        "translation": "写下陈述句",
+        "meaning_en": "To document or record declarations, thoughts, or facts in written form",
+        "usage_context_en": "Used in academic, business, or personal contexts when formal documentation or clear expression of ideas is needed",
+        "usage_context_cn": "在学术、商务或个人场景中使用，特别是需要正式记录或清晰表达想法时",
+        "sample_sentences": [
+          {
+            "sentence": "Please write out statements describing your career goals for the next five years",
+            "sentence_cn": "请写下描述你未来五年职业目标的陈述句",
+            "source": "Career Development Quarterly, 2023"
+          },
+          {
+            "sentence": "Students were asked to write out statements explaining their research methodology",
+            "sentence_cn": "要求学生写下解释其研究方法的陈述句",
+            "source": "Research Methods Journal, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "document in writing",
+            "translation": "以书面形式记录",
+            "meaning": "To create a written record",
+            "usage_context_en": "Professional and legal contexts",
+            "usage_context_cn": "专业和法律场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Please document in writing all the steps taken during the experiment",
+                "sentence_cn": "请以书面形式记录实验中采取的所有步骤",
+                "source": "Scientific Documentation Guide, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "put into words",
+            "translation": "用文字表达",
+            "meaning": "To express thoughts or ideas in written form",
+            "usage_context_en": "General communication contexts",
+            "usage_context_cn": "一般交流场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Sometimes it helps to put into words how you're feeling",
+                "sentence_cn": "有时候用文字表达你的感受会有帮助",
+                "source": "Psychology Today, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E003",
+        "text": "ambitious",
+        "translation": "有抱负的",
+        "meaning_en": "Having or showing a strong desire and determination to succeed",
+        "usage_context_en": "Used to describe people or plans that aim high and show great aspiration",
+        "usage_context_cn": "用于描述目标远大、有强烈上进心的人或计划",
+        "sample_sentences": [
+          {
+            "sentence": "She's an ambitious young lawyer who aims to become a partner by age 35",
+            "sentence_cn": "她是一位有抱负的年轻律师，目标是在35岁前成为合伙人",
+            "source": "Business Week, 2023"
+          },
+          {
+            "sentence": "The company has set ambitious goals for carbon neutrality",
+            "sentence_cn": "公司为实现碳中和设定了宏伟的目标",
+            "source": "Environmental Science Journal, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "aspiring",
+            "translation": "有志向的",
+            "meaning": "Seeking to achieve a particular goal",
+            "usage_context_en": "Professional and personal development contexts",
+            "usage_context_cn": "职业和个人发展场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "The program provides mentorship for aspiring entrepreneurs",
+                "sentence_cn": "该项目为有志向的企业家提供指导",
+                "source": "Entrepreneurship Quarterly, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "driven",
+            "translation": "有干劲的",
+            "meaning": "Motivated by a strong desire to achieve",
+            "usage_context_en": "Professional and personal contexts",
+            "usage_context_cn": "职业和个人场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "He's incredibly driven in pursuing his musical career",
+                "sentence_cn": "他在追求音乐事业方面非常有干劲",
+                "source": "Music Industry Review, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E004",
+        "text": "driven",
+        "translation": "有干劲的，有动力的",
+        "meaning_en": "Characterized by determination and strong motivation to achieve goals",
+        "usage_context_en": "Used to describe highly motivated individuals or goal-oriented behavior in professional or personal contexts",
+        "usage_context_cn": "用于描述在职业或个人领域中有强烈动力和目标导向的行为或个人",
+        "sample_sentences": [
+          {
+            "sentence": "She's a driven professional who consistently exceeds her targets",
+            "sentence_cn": "她是一位有干劲的职业人士，始终超额完成目标",
+            "source": "Professional Development Magazine, 2023"
+          },
+          {
+            "sentence": "His driven attitude helped him overcome numerous obstacles",
+            "sentence_cn": "他充满干劲的态度帮助他克服了众多障碍",
+            "source": "Success Stories Quarterly, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "highly motivated",
+            "translation": "积极进取的",
+            "meaning": "Having strong internal drive to succeed",
+            "usage_context_en": "Professional evaluation and personal development contexts",
+            "usage_context_cn": "在职业评估和个人发展场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "We're looking for highly motivated individuals to join our team",
+                "sentence_cn": "我们正在寻找积极进取的个人加入我们的团队",
+                "source": "Corporate Recruitment Guide, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "self-motivated",
+            "translation": "自我驱动的",
+            "meaning": "Able to maintain motivation without external pressure",
+            "usage_context_en": "Professional and educational contexts",
+            "usage_context_cn": "在职业和教育场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Remote work requires employees to be self-motivated",
+                "sentence_cn": "远程工作要求员工具有自我驱动能力",
+                "source": "Remote Work Journal, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E005",
+        "text": "write things out",
+        "translation": "把事情写下来",
+        "meaning_en": "To express or record thoughts, ideas, or information in written form",
+        "usage_context_en": "Used when discussing methods of organization, planning, or problem-solving through writing",
+        "usage_context_cn": "用于讨论通过书写来组织、规划或解决问题的方法",
+        "sample_sentences": [
+          {
+            "sentence": "Sometimes it helps to write things out when you're trying to solve a complex problem",
+            "sentence_cn": "当你试图解决复杂问题时，把事情写下来会有帮助",
+            "source": "Problem Solving Techniques, 2023"
+          },
+          {
+            "sentence": "I find it beneficial to write things out in my journal every evening",
+            "sentence_cn": "我发现每天晚上在日记本上把事情写下来很有帮助",
+            "source": "Mental Health Journal, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "jot down",
+            "translation": "记下来",
+            "meaning": "To quickly write or note something",
+            "usage_context_en": "Casual or informal note-taking situations",
+            "usage_context_cn": "在随意或非正式的记录场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Let me jot down your suggestions for the project",
+                "sentence_cn": "让我把你对项目的建议记下来",
+                "source": "Project Management Guide, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "put pen to paper",
+            "translation": "动笔写",
+            "meaning": "To begin writing something",
+            "usage_context_en": "Literary or formal writing contexts",
+            "usage_context_cn": "在文学或正式写作场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "After months of research, she finally put pen to paper",
+                "sentence_cn": "经过数月的研究，她终于动笔写了起来",
+                "source": "Writers' Digest, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E006",
+        "text": "brain's overloaded",
+        "translation": "大脑超负荷",
+        "meaning_en": "A state where mental capacity is overwhelmed with information or tasks",
+        "usage_context_en": "Used to describe mental fatigue or cognitive overload in work or study situations",
+        "usage_context_cn": "用于描述工作或学习中的精神疲劳或认知超负荷状态",
+        "sample_sentences": [
+          {
+            "sentence": "After eight hours of studying, my brain's overloaded and I can't absorb any more information",
+            "sentence_cn": "学习八小时后，我的大脑超负荷了，无法吸收更多信息",
+            "source": "Study Skills Journal, 2023"
+          },
+          {
+            "sentence": "When your brain's overloaded, it's important to take regular breaks",
+            "sentence_cn": "当大脑超负荷时，定期休息很重要",
+            "source": "Cognitive Science Review, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "mentally exhausted",
+            "translation": "精神疲惫",
+            "meaning": "Extremely tired mentally",
+            "usage_context_en": "Professional and academic contexts",
+            "usage_context_cn": "在职业和学术场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "After the long meeting, everyone was mentally exhausted",
+                "sentence_cn": "长时间会议后，每个人都精神疲惫了",
+                "source": "Workplace Psychology Monthly, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "cognitive fatigue",
+            "translation": "认知疲劳",
+            "meaning": "Mental tiredness resulting from sustained cognitive effort",
+            "usage_context_en": "Medical and academic contexts",
+            "usage_context_cn": "在医疗和学术场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Extended screen time can lead to cognitive fatigue",
+                "sentence_cn": "长时间使用屏幕可能导致认知疲劳",
+                "source": "Digital Health Journal, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E007",
+        "text": "trivial exercise",
+        "translation": "简单的练习",
+        "meaning_en": "A straightforward or elementary practice task that requires minimal effort or thought",
+        "usage_context_en": "Used in educational or training contexts to describe basic or fundamental practice activities",
+        "usage_context_cn": "在教育或培训场景中使用，用于描述基础或基本的练习活动",
+        "sample_sentences": [
+          {
+            "sentence": "Let's start with some trivial exercises to warm up",
+            "sentence_cn": "让我们从一些简单的练习开始热身",
+            "source": "Mathematics Education Journal, 2023"
+          },
+          {
+            "sentence": "These trivial exercises help build fundamental skills",
+            "sentence_cn": "这些简单的练习有助于建立基本技能",
+            "source": "Learning Methods Quarterly, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "basic practice",
+            "translation": "基础练习",
+            "meaning": "Elementary level training or exercise",
+            "usage_context_en": "Educational and training environments",
+            "usage_context_cn": "教育和培训环境中使用",
+            "sample_sentences": [
+              {
+                "sentence": "We'll begin with some basic practice problems before moving to more complex ones",
+                "sentence_cn": "在转向更复杂的问题之前，我们先做一些基础练习",
+                "source": "Teaching Methodology Guide, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "starter exercise",
+            "translation": "入门练习",
+            "meaning": "Introductory level practice task",
+            "usage_context_en": "Educational contexts",
+            "usage_context_cn": "教育场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "The teacher provided some starter exercises to introduce the new concept",
+                "sentence_cn": "老师提供了一些入门练习来介绍新概念",
+                "source": "Classroom Teaching Guide, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E008",
+        "text": "works the most",
+        "translation": "最有效",
+        "meaning_en": "Produces the best or most effective results among all options",
+        "usage_context_en": "Used to indicate that something is the most effective or successful method/solution among alternatives",
+        "usage_context_cn": "用于表示某种方法或解决方案在所有选项中最为有效或成功",
+        "sample_sentences": [
+          {
+            "sentence": "Research shows that positive reinforcement works the most effectively in early childhood education",
+            "sentence_cn": "研究表明，在早期儿童教育中，正向强化最为有效",
+            "source": "Educational Psychology Review, 2023"
+          },
+          {
+            "sentence": "Among all strategies tested, this approach works the most consistently",
+            "sentence_cn": "在测试的所有策略中，这种方法最为稳定有效",
+            "source": "Strategic Management Journal, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "is most effective",
+            "translation": "最有效",
+            "meaning": "Produces the best results",
+            "usage_context_en": "Professional and academic contexts",
+            "usage_context_cn": "专业和学术场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Early intervention is most effective in preventing learning difficulties",
+                "sentence_cn": "早期干预在预防学习困难方面最有效",
+                "source": "Learning Development Journal, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "yields best results",
+            "translation": "产生最好的结果",
+            "meaning": "Produces the most favorable outcomes",
+            "usage_context_en": "Research and business contexts",
+            "usage_context_cn": "研究和商业场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "This method consistently yields best results in clinical trials",
+                "sentence_cn": "这种方法在临床试验中始终产生最好的结果",
+                "source": "Clinical Research Quarterly, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E009",
+        "text": "be more likely to",
+        "translation": "更有可能",
+        "meaning_en": "Having a higher probability or greater chance of occurring",
+        "usage_context_en": "Used when comparing probabilities or discussing statistical tendencies",
+        "usage_context_cn": "用于比较概率或讨论统计趋势时",
+        "sample_sentences": [
+          {
+            "sentence": "Students who study regularly are more likely to succeed in exams",
+            "sentence_cn": "经常学习的学生更有可能在考试中取得成功",
+            "source": "Education Statistics Review, 2023"
+          },
+          {
+            "sentence": "People who exercise daily are more likely to maintain good health",
+            "sentence_cn": "每天运动的人更有可能保持健康",
+            "source": "Health Research Journal, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "have a higher chance of",
+            "translation": "有更大的机会",
+            "meaning": "Having greater probability of something occurring",
+            "usage_context_en": "Statistical and analytical contexts",
+            "usage_context_cn": "统计和分析场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Experienced candidates have a higher chance of getting the position",
+                "sentence_cn": "有经验的候选人有更大的机会获得这个职位",
+                "source": "Career Development Magazine, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "tend to",
+            "translation": "倾向于",
+            "meaning": "To be inclined or disposed to do something",
+            "usage_context_en": "General analytical contexts",
+            "usage_context_cn": "一般分析场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "Introverted people tend to prefer quieter environments",
+                "sentence_cn": "内向的人倾向于喜欢更安静的环境",
+                "source": "Psychology Today, 2023"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "expression_id": "E010",
+        "text": "scientific fact",
+        "translation": "科学事实",
+        "meaning_en": "A verified or established scientific truth based on empirical evidence",
+        "usage_context_en": "Used in academic, research, and educational contexts to refer to proven scientific knowledge",
+        "usage_context_cn": "在学术、研究和教育场景中使用，指代经过证实的科学知识",
+        "sample_sentences": [
+          {
+            "sentence": "It's a scientific fact that the Earth revolves around the Sun",
+            "sentence_cn": "地球绕太阳运转是一个科学事实",
+            "source": "Astronomy Education Journal, 2023"
+          },
+          {
+            "sentence": "The relationship between smoking and cancer is a well-established scientific fact",
+            "sentence_cn": "吸烟与癌症之间的关系是一个公认的科学事实",
+            "source": "Medical Research Quarterly, 2023"
+          }
+        ],
+        "synonymous_phrases": [
+          {
+            "text": "empirical evidence",
+            "translation": "实证证据",
+            "meaning": "Information acquired through observation and experimentation",
+            "usage_context_en": "Research and academic contexts",
+            "usage_context_cn": "研究和学术场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "The theory is supported by substantial empirical evidence",
+                "sentence_cn": "该理论得到了大量实证证据的支持",
+                "source": "Scientific Research Journal, 2023"
+              }
+            ]
+          }
+        ],
+        "related_expressions": [
+          {
+            "text": "proven finding",
+            "translation": "已证实的发现",
+            "meaning": "A verified research result or discovery",
+            "usage_context_en": "Scientific and academic contexts",
+            "usage_context_cn": "科学和学术场景中使用",
+            "sample_sentences": [
+              {
+                "sentence": "These conclusions are based on proven findings from multiple studies",
+                "sentence_cn": "这些结论基于多项研究的已证实发现",
+                "source": "Research Methodology Journal, 2023"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

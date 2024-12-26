@@ -104,11 +104,11 @@ export const ExpressionsAnalysisSection: React.FC<
           </div>
 
           {/* Usage Context */}
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <h3 className="text-slate-800 font-medium mb-2">使用场景：</h3>
             <p className="text-slate-700 mb-2">{expression.usage_context_cn}</p>
             <p className="text-slate-600">{expression.usage_context_en}</p>
-          </div>
+          </div> */}
 
           {/* Examples */}
           {expression.sample_sentences?.length > 0 && (

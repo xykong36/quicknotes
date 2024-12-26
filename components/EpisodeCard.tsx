@@ -1,7 +1,5 @@
-import { Search } from "lucide-react";
 import { Episode } from "@/app/types/Episode";
 import Link from "next/link";
-// import Image from "next/image";
 
 interface EpisodeCardProps {
   episode: Episode;
@@ -27,17 +25,10 @@ export const EpisodeCard = ({ episode }: EpisodeCardProps) => {
       className="relative group rounded-lg overflow-hidden cursor-pointer"
     >
       <img
-        src={`/static/images/episodes/ep${episode.episode_id}.png`}
+        src={`/images/episodes/ep${episode.episode_id}.png`}
         alt={`Episode ${episode.episode_id}`}
         className="w-full h-48 object-cover"
       />
-      {/* <Image
-        src={`/static/images/episodes/ep${episode.episode_id}.png`}
-        alt={`Episode ${episode.episode_id}`}
-        width={400}
-        height={192}
-        className="object-cover"
-      /> */}
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
         <div className="flex items-center justify-between text-white">
           <div className="flex items-center space-x-2">
