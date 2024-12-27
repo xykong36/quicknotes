@@ -32,7 +32,7 @@ export default function TranscriptView({
   }) => <section className={`p-4 md:p-6 ${className}`}>{children}</section>;
 
   return (
-    <div className="space-y-6 md:space-y-8 max-w-7xl mx-auto">
+    <div className="pt-6 space-y-6 md:space-y-8 max-w-7xl mx-auto">
       {/* Part 1 */}
       <div>
         <SectionTitle>Part1 对照中文 尝试开口说英文</SectionTitle>

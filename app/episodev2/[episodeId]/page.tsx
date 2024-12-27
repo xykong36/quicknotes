@@ -1,8 +1,17 @@
 "use client";
 
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import TranscriptView from "@/components/TranscriptView";
 import allTranscripts from "@/data/local/all-full-transcript.json";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface PageProps {
   params: {
@@ -25,7 +34,6 @@ interface AllTranscripts {
   [key: string]: Transcript;
 }
 
-// 定义 allTranscripts 的类型
 const typedAllTranscripts: AllTranscripts = allTranscripts as AllTranscripts;
 
 export default function Page({ params }: PageProps) {
@@ -36,12 +44,22 @@ export default function Page({ params }: PageProps) {
   if (!episodeData) {
     notFound();
   }
+
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <main className="container mx-auto max-w-4xl">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Episode {episodeId} Transcript
-        </h1>
+    <div className="min-h-screen bg-gray-50">
+      <main className="px-4 py-4 md:py-8 mx-auto max-w-4xl">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Episode {episodeId}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         <TranscriptView
           transcript={episodeData.full_transcript}
           highlights={episodeData.highlights}
