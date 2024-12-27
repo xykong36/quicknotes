@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, Menu, X } from "lucide-react";
 
-import { TOPIC_TAG_COLORS } from "@/constants/tags/colors";
 import { TopicTag } from "@/constants/tags/enums";
 import { EpisodeGrid } from "@/components/EpisodeGrid";
 import episodes from "@/data/episodes.json";
+import { EpisodeHeader } from "@/components/EpisodeHeader";
+import { TopicTagSection } from "@/components/TopicTagSection";
+import { SearchHeader } from "@/components/SearchHeader";
+import { Sidebar } from "@/components/Sidebar";
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,9 +23,7 @@ const HomePage = () => {
     // Filter by topics if any topics are selected
     if (selectedTags.topics.length > 0) {
       filtered = filtered.filter((episode) => {
-        // Split the comma-separated topic_tag string into an array
         const episodeTopics = episode.topic_tag.split(",").map((t) => t.trim());
-        // Check if any selected topic matches with episode topics
         return selectedTags.topics.some((selectedTopic) =>
           episodeTopics.includes(selectedTopic)
         );
@@ -52,134 +52,34 @@ const HomePage = () => {
     }));
   };
 
-  const TagButton = ({
-    tag,
-    color,
-    isSelected,
-    onClick,
-  }: {
-    tag: string;
-    color: string;
-    isSelected: boolean;
-    onClick: () => void;
-  }) => (
-    <button
-      onClick={onClick}
-      className={`
-        px-3 py-1.5 rounded text-sm ${color}
-        transition-all duration-200
-        ${
-          isSelected
-            ? "ring-2 ring-offset-2 ring-purple-500 shadow-md scale-105"
-            : "opacity-80 hover:opacity-100 hover:shadow-sm"
-        }
-      `}
-    >
-      {tag}
-    </button>
-  );
-
-  const TopicTagSection = () => (
-    <div className="px-4">
-      <div className="inline-flex items-center space-x-2 mb-3">
-        <div className="bg-black text-white text-sm font-bold py-1 px-2">
-          TOPIC
-        </div>
-        {selectedTags.topics.length > 0 && (
-          <button
-            onClick={() => setSelectedTags((prev) => ({ ...prev, topics: [] }))}
-            className="text-xs text-gray-500 hover:text-red-500"
-          >
-            Clear
-          </button>
-        )}
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {Object.values(TopicTag).map((tag) => (
-          <TagButton
-            key={tag}
-            tag={tag}
-            color={TOPIC_TAG_COLORS[tag]}
-            isSelected={selectedTags.topics.includes(tag)}
-            onClick={() => toggleTag(tag, "topics")}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
-  // 主要修改部分
   return (
     <div className="min-h-screen bg-white">
       <div className="flex h-full">
-        {/* Sidebar - Fixed position */}
-        <aside
-          className={`
-          fixed top-0 left-0 h-full 
-          w-64 bg-white border-r border-gray-200
-          transform transition-transform duration-300 ease-in-out
-          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0 md:relative md:min-h-screen
-          z-50
-        `}
-        >
-          <div className="h-full overflow-y-auto">
-            <div className="p-4">
-              <TopicTagSection />
-            </div>
-          </div>
-        </aside>
+        <Sidebar isOpen={isSidebarOpen}>
+          <TopicTagSection
+            selectedTags={selectedTags}
+            onClearTags={() => setSelectedTags({ ...selectedTags, topics: [] })}
+            onToggleTag={(tag) => toggleTag(tag, "topics")}
+          />
+        </Sidebar>
 
-        {/* Main Content Container */}
         <div className="flex-1 flex flex-col min-h-screen w-full md:w-[calc(100%-16rem)]">
-          {/* Header */}
-          <header className="sticky top-0 bg-white border-b border-gray-200 z-40">
-            <div className="flex items-center justify-between p-4">
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="p-2 hover:bg-gray-100 rounded-lg md:hidden"
-                >
-                  {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
-                <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                  <Search className="w-4 h-4 text-white" />
-                </div>
-                <h1 className="text-xl font-bold">英语素材库</h1>
-              </div>
-            </div>
+          <SearchHeader
+            isSidebarOpen={isSidebarOpen}
+            onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+          />
 
-            {/* Search bar */}
-            <div className="p-4 border-t border-gray-100">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search creator or topic..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-            </div>
-          </header>
-
-          {/* Main Content */}
           <main className="flex-1 p-4 md:p-6">
-            <div className="mb-4 text-sm text-gray-600">
-              Showing {filteredEpisodes.length} videos
-              {selectedTags.topics.length > 0 &&
-                ` for topics: ${selectedTags.topics.join(", ")}`}
-            </div>
-
-            <h2 className="text-xl md:text-2xl font-bold mb-6 text-black">
-              Episodes
-            </h2>
+            <EpisodeHeader
+              count={filteredEpisodes.length}
+              selectedTopics={selectedTags.topics}
+            />
             <EpisodeGrid episodes={filteredEpisodes} />
           </main>
         </div>
 
-        {/* Overlay for mobile */}
         {isSidebarOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
