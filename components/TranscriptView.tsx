@@ -45,10 +45,11 @@ export default function TranscriptView({
       <div>
         <SectionTitle>Part2 对照英文 排查卡壳的地方</SectionTitle>
         <Section>
+          {/* Mobile-first: Container starts as single column */}
           <div className="flex flex-col md:flex-row md:gap-8">
-            {/* 英文部分 */}
-            <div className="mb-6 md:mb-0 md:w-3/5">
-              <div className="bg-gray-50 p-4 rounded-lg md:bg-transparent md:p-0">
+            {/* English section - full width on mobile */}
+            <div className="w-full md:w-3/5">
+              <div className="bg-gray-50 rounded-lg p-4 md:bg-transparent md:p-0">
                 <HighlightedText
                   text={transcript.en}
                   highlights={highlights.en}
@@ -56,9 +57,9 @@ export default function TranscriptView({
               </div>
             </div>
 
-            {/* 中文部分 */}
-            <div className="md:w-2/5 md:border-l md:pl-8">
-              <div className="bg-gray-50 p-4 rounded-lg md:bg-transparent md:p-0">
+            {/* Chinese section - hidden on mobile, visible on md breakpoint */}
+            <div className="hidden md:block md:w-2/5 md:border-l md:pl-8">
+              <div className="md:bg-transparent">
                 <HighlightedText
                   text={transcript.cn}
                   highlights={highlights.cn}
