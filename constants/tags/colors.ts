@@ -7,6 +7,9 @@ export const TOPIC_TAG_COLORS: Record<TopicTag, string> = {
   [TopicTag.日常感想]: "bg-red-500/50",
   [TopicTag.化妆服装]: "bg-purple-500/50",
   [TopicTag.学习工作]: "bg-orange-500/50",
+  [TopicTag.人物访谈]: "bg-lime-500/50",
+  [TopicTag.旅游娱乐]: "bg-sky-500/50",
+  [TopicTag.知识科普]: "bg-amber-700/50",
   [TopicTag.复习课]: "bg-pink-500/50",
 } as const;
 

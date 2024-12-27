@@ -1,22 +1,26 @@
 import { Episode } from "@/app/types/Episode";
 import Link from "next/link";
 import Image from "next/image";
-
+import { TOPIC_TAG_COLORS } from "@/constants/tags/colors";
+import { TopicTag } from "@/constants/tags/enums";
 interface EpisodeCardProps {
   episode: Episode;
 }
 
-const getTopicTagStyle = (topic: string) => {
-  const topic_tag_colors: { [key: string]: string } = {
-    天气季节: "bg-blue-500/50",
-    运动健身: "bg-green-500/50",
-    美食烹饪: "bg-yellow-500/50",
-    "日常感想/趣事": "bg-red-500/50",
-    化妆服装: "bg-purple-500/50",
-    学习工作: "bg-orange-500/50",
-    复习课: "bg-pink-500/50",
-  };
-  return topic_tag_colors[topic] || "bg-gray-500/50";
+const isTopicTag = (value: string): value is TopicTag => {
+  return value in TopicTag;
+};
+
+const stringToTopicTag = (topic: string): TopicTag | undefined => {
+  return isTopicTag(topic)
+    ? TopicTag[topic as keyof typeof TopicTag]
+    : undefined;
+};
+
+export const getTopicTagStyle = (topic: string): string => {
+  return (
+    TOPIC_TAG_COLORS[stringToTopicTag(topic) as TopicTag] ?? "bg-gray-500/50"
+  );
 };
 
 export const EpisodeCard = ({ episode }: EpisodeCardProps) => {
