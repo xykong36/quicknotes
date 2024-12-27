@@ -45,6 +45,7 @@ export default function Page({ params }: PageProps) {
         <TranscriptView
           transcript={episodeData.full_transcript}
           highlights={episodeData.highlights}
+          episodeId={episodeId}
         />
       </main>
     </div>
