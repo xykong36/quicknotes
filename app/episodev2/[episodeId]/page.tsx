@@ -1,7 +1,6 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import TranscriptView from "@/components/TranscriptView";
 import allTranscripts from "@/data/local/all-full-transcript.json";
 import {
