@@ -10,6 +10,17 @@ interface TranscriptViewProps {
   episodeId: string;
 }
 
+// 提取可复用的内容区块组件
+const ContentBlock = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div className={`bg-gray-50 rounded-lg p-4 ${className}`}>{children}</div>
+);
+
 export default function TranscriptView({
   transcript,
   highlights,
@@ -31,6 +42,13 @@ export default function TranscriptView({
     className?: string;
   }) => <section className={`p-4 md:p-6 ${className}`}>{children}</section>;
 
+  // 提取音频播放器组件，统一样式
+  const PlayerSection = ({ className = "" }: { className?: string }) => (
+    <div className={`mb-4 ${className}`}>
+      <AudioPlayer episodeId={episodeId} />
+    </div>
+  );
+
   return (
     <div className="pt-6 space-y-6 md:space-y-8 max-w-7xl mx-auto">
       {/* Part 1 */}
@@ -45,16 +63,19 @@ export default function TranscriptView({
       <div>
         <SectionTitle>Part2 对照英文 排查卡壳的地方</SectionTitle>
         <Section>
+          {/* Audio player for Part 2 */}
+          <PlayerSection className="mb-6" />
+
           {/* Mobile-first: Container starts as single column */}
           <div className="flex flex-col md:flex-row md:gap-8">
-            {/* English section - full width on mobile */}
-            <div className="w-full md:w-3/5">
-              <div className="bg-gray-50 rounded-lg p-4 md:bg-transparent md:p-0">
+            {/* English section with player - full width on mobile */}
+            <div className="w-full md:w-3/5 space-y-4">
+              <ContentBlock className="md:bg-transparent md:p-0">
                 <HighlightedText
                   text={transcript.en}
                   highlights={highlights.en}
                 />
-              </div>
+              </ContentBlock>
             </div>
 
             {/* Chinese section - hidden on mobile, visible on md breakpoint */}
@@ -85,9 +106,7 @@ export default function TranscriptView({
       <div>
         <SectionTitle>Part4 模仿跟读 学习语音语调</SectionTitle>
         <Section className="border-b">
-          <div className="mb-2">
-            <AudioPlayer episodeId={episodeId} />
-          </div>
+          <PlayerSection />
         </Section>
       </div>
 
@@ -96,12 +115,12 @@ export default function TranscriptView({
         <SectionTitle>Part6 口头填空 及时巩固地道表达</SectionTitle>
         <Section>
           <div className="space-y-4">
-            <div className="bg-gray-50 p-4 rounded-lg mb-4">
+            <ContentBlock className="mb-4">
               <HighlightedText
                 text={transcript.cn}
                 highlights={highlights.cn}
               />
-            </div>
+            </ContentBlock>
             <BlankFilling text={transcript.en} highlights={highlights.en} />
           </div>
         </Section>
