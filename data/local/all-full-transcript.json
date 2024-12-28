@@ -71,7 +71,9 @@
         "thinner",
         "thick",
         "it tastes ten out of ten",
-        "peanut butter, frozen banana, some cacao powder"
+        "peanut butter",
+        "frozen banana",
+        "cacao powder"
       ],
       "cn": [
         "首选",
@@ -81,7 +83,9 @@
         "更稀",
         "粘稠",
         "味道满分",
-        "花生酱，冷冻香蕉，一些可可粉"
+        "花生酱",
+        "冷冻香蕉",
+        "可可粉"
       ]
     }
   },
