@@ -1,4 +1,7 @@
 import { HighlightedSpan } from "./HighlightedSpan";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 interface VocabularyItem {
   english: string;
@@ -27,17 +30,23 @@ export const VocabularySection = ({
   return (
     <section className="bg-white rounded-xl font-bold shadow-lg p-4 sm:p-6">
       <h3 className="text-lg font-medium mb-4">{title}</h3>
-      {/* Mobile-first: Start with single column, then use sm: breakpoint for desktop */}
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {vocabularyItems.map((item, index) => (
-          <li
-            key={`${item.english}-${index}`}
-            className="rounded-lg border border-gray-200 p-3 flex flex-row justify-between items-center hover:bg-gray-50 transition-colors"
-          >
-            <HighlightedSpan text={item.english} colorIndex={index} />
-            <span className="text-gray-600 font-medium ml-2">
-              {item.chinese}
-            </span>
+          <li key={`${item.english}-${index}`}>
+            <Link href={`/expression/${encodeURIComponent(item.english)}`}>
+              <Button
+                variant="ghost"
+                className="w-full rounded-lg border border-gray-200 p-3 flex flex-row justify-between items-center hover:bg-gray-50 hover:text-gray-700 transition-all group"
+              >
+                <div className="flex items-center flex-1">
+                  <HighlightedSpan text={item.english} colorIndex={index} />
+                  <span className="text-gray-600 font-medium ml-2">
+                    {item.chinese}
+                  </span>
+                </div>
+                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-2 text-black-300" />
+              </Button>
+            </Link>
           </li>
         ))}
       </ul>

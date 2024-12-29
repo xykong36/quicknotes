@@ -1,0 +1,652 @@
+{
+  "expressions": [
+    {
+      "expression_id": "E001",
+      "text": "got out of the shower",
+      "translation": "洗完澡",
+      "meaning_en": "To finish showering and exit the shower area",
+      "context_sentence_en": "I just got out of the shower, I dried my hair.",
+      "context_sentence_cn": "我刚洗完澡，吹干头发。",
+      "sample_sentences": [
+        {
+          "sentence": "He had just got out of the shower when the phone rang",
+          "sentence_cn": "电话响的时候他刚洗完澡",
+          "source": "Cambridge Dictionary Usage Examples"
+        },
+        {
+          "sentence": "She got out of the shower and wrapped herself in a warm towel",
+          "sentence_cn": "她洗完澡，用温暖的毛巾裹住自己",
+          "source": "English Daily Usage Collection"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "finish showering",
+          "translation": "洗完澡",
+          "meaning": "To complete the act of taking a shower",
+          "sample_sentences": [
+            {
+              "sentence": "I'll call you back after I finish showering",
+              "sentence_cn": "我洗完澡后再回电话给你",
+              "source": "English Daily Conversations"
+            }
+          ]
+        },
+        {
+          "text": "step out of the shower",
+          "translation": "从淋浴间出来",
+          "meaning": "To exit the shower area after bathing",
+          "sample_sentences": [
+            {
+              "sentence": "Be careful when you step out of the shower, the floor might be slippery",
+              "sentence_cn": "从淋浴间出来时要当心，地板可能很滑",
+              "source": "Everyday Safety Tips"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "take a shower",
+          "translation": "洗澡",
+          "meaning": "To clean oneself under running water",
+          "sample_sentences": [
+            {
+              "sentence": "I always take a shower in the morning to wake myself up",
+              "sentence_cn": "我总是早上洗澡来让自己清醒",
+              "source": "Daily Routine Magazine"
+            }
+          ]
+        },
+        {
+          "text": "hop in the shower",
+          "translation": "快速冲个澡",
+          "meaning": "To quickly take a shower",
+          "sample_sentences": [
+            {
+              "sentence": "Let me hop in the shower real quick before we leave",
+              "sentence_cn": "让我在我们出发前快速冲个澡",
+              "source": "Casual English Expressions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E002",
+      "text": "dried my hair",
+      "translation": "吹干头发",
+      "meaning_en": "To remove moisture from one's hair, typically using a towel or hair dryer",
+      "context_sentence_en": "I just got out of the shower, I dried my hair.",
+      "context_sentence_cn": "我刚洗完澡，吹干头发。",
+      "sample_sentences": [
+        {
+          "sentence": "She dried her hair with a blow dryer before styling it",
+          "sentence_cn": "她用吹风机吹干头发后再做造型",
+          "source": "Daily Beauty Tips"
+        },
+        {
+          "sentence": "I usually air dry my hair to avoid heat damage",
+          "sentence_cn": "我通常自然风干头发以避免热损伤",
+          "source": "Hair Care Magazine"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "blow-dry hair",
+          "translation": "用吹风机吹干头发",
+          "meaning": "To dry hair using a hair dryer",
+          "sample_sentences": [
+            {
+              "sentence": "I need to blow-dry my hair before going out or it will be a mess",
+              "sentence_cn": "我需要用吹风机吹干头发再出门，否则会很乱",
+              "source": "Beauty & Style Blog"
+            }
+          ]
+        },
+        {
+          "text": "towel dry hair",
+          "translation": "用毛巾擦干头发",
+          "meaning": "To dry hair using a towel",
+          "sample_sentences": [
+            {
+              "sentence": "She gently towel dried her hair to prevent damage",
+              "sentence_cn": "她轻轻地用毛巾擦干头发以防止损伤",
+              "source": "Hair Care Guide"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "style hair",
+          "translation": "做发型",
+          "meaning": "To arrange hair in a particular way",
+          "sample_sentences": [
+            {
+              "sentence": "After drying my hair, I usually style it with some hair gel",
+              "sentence_cn": "吹干头发后，我通常用发胶做造型",
+              "source": "Hair Styling Tips"
+            }
+          ]
+        },
+        {
+          "text": "brush hair",
+          "translation": "梳头发",
+          "meaning": "To untangle and smooth hair using a brush",
+          "sample_sentences": [
+            {
+              "sentence": "I always brush my hair before drying it to remove tangles",
+              "sentence_cn": "我总是在吹干头发前先梳理，以去除打结",
+              "source": "Hair Care Basics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E003",
+      "text": "put on a little makeup",
+      "translation": "化一个淡妆",
+      "meaning_en": "To apply a small amount of cosmetics to one's face",
+      "context_sentence_en": "And I'm just going to put on a little makeup today",
+      "context_sentence_cn": "今天准备化一个淡妆",
+      "sample_sentences": [
+        {
+          "sentence": "She likes to put on a little makeup before going to work",
+          "sentence_cn": "她喜欢上班前化个淡妆",
+          "source": "Cosmopolitan Magazine"
+        },
+        {
+          "sentence": "I just put on a little makeup for special occasions",
+          "sentence_cn": "我只在特殊场合化一点淡妆",
+          "source": "Beauty Tips Blog"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "apply light makeup",
+          "translation": "化淡妆",
+          "meaning": "To use a minimal amount of cosmetics",
+          "sample_sentences": [
+            {
+              "sentence": "She prefers to apply light makeup for her daily office look",
+              "sentence_cn": "她更喜欢在日常办公时化淡妆",
+              "source": "Professional Beauty Magazine"
+            }
+          ]
+        },
+        {
+          "text": "do natural makeup",
+          "translation": "化自然妆",
+          "meaning": "To apply makeup that looks natural",
+          "sample_sentences": [
+            {
+              "sentence": "For summer days, I like to do natural makeup to keep things fresh",
+              "sentence_cn": "在夏天，我喜欢化自然妆来保持清爽",
+              "source": "Summer Beauty Guide"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "get dolled up",
+          "translation": "精心打扮",
+          "meaning": "To dress up and apply makeup elaborately",
+          "sample_sentences": [
+            {
+              "sentence": "She spent two hours getting dolled up for her friend's wedding",
+              "sentence_cn": "她花了两个小时为参加朋友的婚礼精心打扮",
+              "source": "Wedding Style Magazine"
+            }
+          ]
+        },
+        {
+          "text": "go bare-faced",
+          "translation": "素颜",
+          "meaning": "To wear no makeup",
+          "sample_sentences": [
+            {
+              "sentence": "On weekends, I usually go bare-faced to let my skin breathe",
+              "sentence_cn": "周末我通常素颜，让皮肤呼吸",
+              "source": "Skincare Tips Weekly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E004",
+      "text": "SPF",
+      "translation": "防晒霜",
+      "meaning_en": "Sun Protection Factor, a measure of how well a sunscreen will protect skin from UV rays",
+      "context_sentence_en": "mostly like SPF, just because it's actually pretty sunny out",
+      "context_sentence_cn": "主要是用防晒霜，因为外面阳光明媚",
+      "sample_sentences": [
+        {
+          "sentence": "Remember to apply SPF 30 or higher when going outside",
+          "sentence_cn": "记得出门涂抹30倍或更高的防晒霜",
+          "source": "Dermatology Today"
+        },
+        {
+          "sentence": "She always wears SPF even on cloudy days",
+          "sentence_cn": "她即使在阴天也会涂防晒霜",
+          "source": "Skincare Magazine"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "sunscreen",
+          "translation": "防晒霜",
+          "meaning": "A cream or lotion for protecting skin from the sun",
+          "sample_sentences": [
+            {
+              "sentence": "Don't forget to put on sunscreen before going to the beach",
+              "sentence_cn": "去海滩前别忘了涂防晒霜",
+              "source": "Beach Safety Guide"
+            }
+          ]
+        },
+        {
+          "text": "sun protection",
+          "translation": "防晒",
+          "meaning": "Methods or products used to protect from sun damage",
+          "sample_sentences": [
+            {
+              "sentence": "Good sun protection is essential for preventing skin aging",
+              "sentence_cn": "良好的防晒对预防皮肤衰老至关重要",
+              "source": "Anti-aging Skincare Guide"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "sun block",
+          "translation": "防晒霜",
+          "meaning": "A cream that blocks the sun's rays",
+          "sample_sentences": [
+            {
+              "sentence": "I always keep sun block in my beach bag",
+              "sentence_cn": "我总是在沙滩包里放防晒霜",
+              "source": "Summer Essentials Guide"
+            }
+          ]
+        },
+        {
+          "text": "UV protection",
+          "translation": "防紫外线",
+          "meaning": "Protection against ultraviolet rays",
+          "sample_sentences": [
+            {
+              "sentence": "These sunglasses provide good UV protection for your eyes",
+              "sentence_cn": "这副太阳镜能很好地保护眼睛防止紫外线",
+              "source": "Eye Care Weekly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E005",
+      "text": "pretty sunny out",
+      "translation": "外面阳光明媚",
+      "meaning_en": "The weather outside is notably bright and sunny",
+      "context_sentence_en": "it's actually pretty sunny out which I'm happy",
+      "context_sentence_cn": "外面阳光明媚，这让我很开心",
+      "sample_sentences": [
+        {
+          "sentence": "It's pretty sunny out today, perfect for a picnic",
+          "sentence_cn": "今天外面阳光明媚，非常适合野餐",
+          "source": "Weather Channel Blog"
+        },
+        {
+          "sentence": "Despite being winter, it was pretty sunny out",
+          "sentence_cn": "尽管是冬天，外面却阳光明媚",
+          "source": "Daily Weather Report"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "nice and sunny",
+          "translation": "阳光灿烂",
+          "meaning": "Pleasant sunny weather",
+          "sample_sentences": [
+            {
+              "sentence": "The forecast says it will be nice and sunny all weekend",
+              "sentence_cn": "天气预报说整个周末都会阳光灿烂",
+              "source": "Weather Updates"
+            }
+          ]
+        },
+        {
+          "text": "bright and sunny",
+          "translation": "晴朗明媚",
+          "meaning": "Very sunny and clear weather",
+          "sample_sentences": [
+            {
+              "sentence": "It's bright and sunny outside, perfect for drying laundry",
+              "sentence_cn": "外面阳光明媚，很适合晾晒衣物",
+              "source": "Daily Living Tips"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "beautiful weather",
+          "translation": "好天气",
+          "meaning": "Pleasant weather conditions",
+          "sample_sentences": [
+            {
+              "sentence": "We're having beautiful weather this week, let's go hiking",
+              "sentence_cn": "这周天气很好，我们去徒步吧",
+              "source": "Outdoor Activities Guide"
+            }
+          ]
+        },
+        {
+          "text": "perfect day",
+          "translation": "完美的一天",
+          "meaning": "A day with ideal weather",
+          "sample_sentences": [
+            {
+              "sentence": "It's a perfect day for a walk in the park",
+              "sentence_cn": "今天是在公园散步的完美天气",
+              "source": "Lifestyle Magazine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E006",
+      "text": "a million times",
+      "translation": "无数次",
+      "meaning_en": "Very many times; repeatedly (used as hyperbole)",
+      "context_sentence_en": "I feel like I've told you guys this a million times",
+      "context_sentence_cn": "我可能跟你们说过无数次",
+      "sample_sentences": [
+        {
+          "sentence": "I've told you a million times to clean your room",
+          "sentence_cn": "我已经告诉过你无数次要打扫房间了",
+          "source": "Common English Expressions"
+        },
+        {
+          "sentence": "She's practiced that song a million times",
+          "sentence_cn": "她练习那首歌无数次了",
+          "source": "English Idioms Dictionary"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "countless times",
+          "translation": "数不清的次数",
+          "meaning": "Very frequently",
+          "sample_sentences": [
+            {
+              "sentence": "I've watched this movie countless times, I know every line",
+              "sentence_cn": "我看过这部电影无数次，我知道每句台词",
+              "source": "Movie Fan Magazine"
+            }
+          ]
+        },
+        {
+          "text": "over and over again",
+          "translation": "一次又一次",
+          "meaning": "Repeatedly",
+          "sample_sentences": [
+            {
+              "sentence": "She had to explain the concept over and over again to her students",
+              "sentence_cn": "她不得不一次又一次地向学生解释这个概念",
+              "source": "Teaching Experience Blog"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "time and time again",
+          "translation": "一再",
+          "meaning": "Repeatedly over a period",
+          "sample_sentences": [
+            {
+              "sentence": "Time and time again, he's proven himself to be reliable",
+              "sentence_cn": "他一再证明自己是可靠的",
+              "source": "Business Review Weekly"
+            }
+          ]
+        },
+        {
+          "text": "again and again",
+          "translation": "反复",
+          "meaning": "Repeatedly",
+          "sample_sentences": [
+            {
+              "sentence": "I've tried again and again to solve this puzzle",
+              "sentence_cn": "我反复尝试解决这个难题",
+              "source": "Problem Solving Guide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E007",
+      "text": "especially dark",
+      "translation": "特别阴暗",
+      "meaning_en": "Notably or particularly lacking in light or brightness",
+      "context_sentence_en": "The winters in Minnesota where I'm from are especially dark",
+      "context_sentence_cn": "我来自明尼苏达州，冬天那里特别阴暗",
+      "sample_sentences": [
+        {
+          "sentence": "The forest gets especially dark after sunset",
+          "sentence_cn": "日落后森林变得特别阴暗",
+          "source": "Nature Guide"
+        },
+        {
+          "sentence": "The basement was especially dark without any windows",
+          "sentence_cn": "没有窗户的地下室特别阴暗",
+          "source": "Home Description Magazine"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "particularly gloomy",
+          "translation": "特别昏暗",
+          "meaning": "Notably dark and depressing",
+          "sample_sentences": [
+            {
+              "sentence": "The weather was particularly gloomy during the rainy season",
+              "sentence_cn": "雨季期间天气特别昏暗",
+              "source": "Weather Reports Daily"
+            }
+          ]
+        },
+        {
+          "text": "extremely dim",
+          "translation": "极其暗淡",
+          "meaning": "Very lacking in light",
+          "sample_sentences": [
+            {
+              "sentence": "The old lamp made the room extremely dim and hard to read in",
+              "sentence_cn": "旧灯让房间极其暗淡，很难看书",
+              "source": "Home Lighting Guide"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "pitch black",
+          "translation": "漆黑一片",
+          "meaning": "Completely dark",
+          "sample_sentences": [
+            {
+              "sentence": "When the power went out, the room became pitch black",
+              "sentence_cn": "停电时，房间变得漆黑一片",
+              "source": "Daily Life Stories"
+            }
+          ]
+        },
+        {
+          "text": "poorly lit",
+          "translation": "光线不足",
+          "meaning": "Having insufficient lighting",
+          "sample_sentences": [
+            {
+              "sentence": "The street was poorly lit, making it dangerous at night",
+              "sentence_cn": "这条街光线不足，晚上很危险",
+              "source": "Urban Safety Guide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E008",
+      "text": "dreary",
+      "translation": "阴沉沉的",
+      "meaning_en": "Dull, bleak, and lifeless; gloomy",
+      "context_sentence_en": "just like very dark and dreary",
+      "context_sentence_cn": "就是非常黑而且阴沉沉的",
+      "sample_sentences": [
+        {
+          "sentence": "The dreary weather made everyone feel tired and unmotivated",
+          "sentence_cn": "阴沉沉的天气让每个人都感到疲惫和没有动力",
+          "source": "Weather Impact Studies"
+        },
+        {
+          "sentence": "It was another dreary day in November with constant rain",
+          "sentence_cn": "这是十一月另一个阴沉沉的日子，雨一直在下",
+          "source": "Weather Journal"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "gloomy",
+          "translation": "阴郁的",
+          "meaning": "Dark and depressing",
+          "sample_sentences": [
+            {
+              "sentence": "The gloomy atmosphere of the old house made everyone uncomfortable",
+              "sentence_cn": "老房子阴郁的氛围让每个人都感到不舒服",
+              "source": "House Description Weekly"
+            }
+          ]
+        },
+        {
+          "text": "dismal",
+          "translation": "阴暗忧郁的",
+          "meaning": "Depressingly dark and bleak",
+          "sample_sentences": [
+            {
+              "sentence": "The office looked dismal with its gray walls and poor lighting",
+              "sentence_cn": "办公室灰色的墙壁和昏暗的灯光看起来很压抑",
+              "source": "Interior Design Magazine"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "bleak",
+          "translation": "阴冷的",
+          "meaning": "Cold and miserable",
+          "sample_sentences": [
+            {
+              "sentence": "The future looked bleak for the small business during the recession",
+              "sentence_cn": "在经济衰退期间，这家小企业的前景看起来很暗淡",
+              "source": "Business News Daily"
+            }
+          ]
+        },
+        {
+          "text": "cheerless",
+          "translation": "沉闷的",
+          "meaning": "Lacking in cheer or comfort",
+          "sample_sentences": [
+            {
+              "sentence": "The hospital waiting room was cheerless and uninviting",
+              "sentence_cn": "医院的候诊室沉闷且不令人愉快",
+              "source": "Healthcare Environment Study"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expression_id": "E009",
+      "text": "moved to",
+      "translation": "搬到",
+      "meaning_en": "To change one's place of residence or location to somewhere else",
+      "context_sentence_en": "Then when I moved to California",
+      "context_sentence_cn": "后来我搬到了加利福尼亚",
+      "sample_sentences": [
+        {
+          "sentence": "She moved to New York to pursue her dream of becoming an artist",
+          "sentence_cn": "她搬到纽约追求成为艺术家的梦想",
+          "source": "Life Stories Magazine"
+        },
+        {
+          "sentence": "When we moved to the countryside, everything became more peaceful",
+          "sentence_cn": "当我们搬到乡下后，一切变得更加平静",
+          "source": "Lifestyle Weekly"
+        }
+      ],
+      "synonymous_phrases": [
+        {
+          "text": "relocated to",
+          "translation": "迁移到",
+          "meaning": "To establish oneself in a new location",
+          "sample_sentences": [
+            {
+              "sentence": "The company relocated to a larger office space downtown",
+              "sentence_cn": "公司迁移到了市中心一个更大的办公空间",
+              "source": "Business Relocation News"
+            }
+          ]
+        },
+        {
+          "text": "settled in",
+          "translation": "安顿下来",
+          "meaning": "To establish residence and become comfortable",
+          "sample_sentences": [
+            {
+              "sentence": "It took us a few months to really settle in after moving to the new city",
+              "sentence_cn": "搬到新城市后，我们花了几个月时间才真正安顿下来",
+              "source": "Urban Living Magazine"
+            }
+          ]
+        }
+      ],
+      "related_expressions": [
+        {
+          "text": "change residence",
+          "translation": "更换住处",
+          "meaning": "To change one's place of living",
+          "sample_sentences": [
+            {
+              "sentence": "We had to change residence due to my new job location",
+              "sentence_cn": "因为我的新工作地点，我们不得不更换住处",
+              "source": "Career Change Stories"
+            }
+          ]
+        },
+        {
+          "text": "set up home",
+          "translation": "安家",
+          "meaning": "To establish a new home",
+          "sample_sentences": [
+            {
+              "sentence": "They decided to set up home in a small coastal town",
+              "sentence_cn": "他们决定在一个沿海小镇安家",
+              "source": "Home & Living Magazine"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
