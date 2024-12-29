@@ -5,7 +5,14 @@ import { ChevronLeft, BookOpen, Lightbulb, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { expressions } from "@/data/local/ep1-expression.json";
 
-export default function ExpressionDetailPage({ params }) {
+// Define the props interface for the page component
+interface PageProps {
+  params: {
+    text: string;
+  };
+}
+
+export default function ExpressionDetailPage({ params }: PageProps) {
   const expression = expressions.find(
     (e) => e.text === decodeURIComponent(params.text)
   );
