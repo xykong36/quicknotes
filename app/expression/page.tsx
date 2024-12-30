@@ -2,7 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { expressions } from "@/data/local/ep1-expression.json";
+import expressionData from "@/data/local/ep1-expression.json";
+const { expressions } = expressionData;
 
 export default function ExpressionsPage() {
   return (

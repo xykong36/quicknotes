@@ -1,7 +1,7 @@
 import { Search, Menu, X } from "lucide-react";
 import { SearchBar } from "./SearchBar";
 import { memo } from "react";
-
+import { Auth } from "./Auth";
 interface SearchHeaderProps {
   isSidebarOpen: boolean;
   onToggle: () => void;
@@ -30,7 +30,9 @@ const LogoIcon = memo(() => (
 
 LogoIcon.displayName = "LogoIcon";
 
-const Title = memo(() => <h1 className="text-xl font-bold">英语素材库</h1>);
+const Title = memo(() => (
+  <h1 className="text-xl font-bold">油管地道英语表达</h1>
+));
 
 Title.displayName = "Title";
 
@@ -43,11 +45,14 @@ export const SearchHeader = memo(
   }: SearchHeaderProps) => (
     <header className="sticky top-0 bg-white border-b border-gray-200 z-40">
       <div className="flex items-center justify-between p-4">
+        {/* Left section */}
         <div className="flex items-center space-x-2">
           <MenuButton isOpen={isSidebarOpen} onClick={onToggle} />
           <LogoIcon />
           <Title />
         </div>
+        {/* Right section - Auth component */}
+        <Auth />
       </div>
       <SearchBar value={searchQuery} onChange={onSearchChange} />
     </header>
