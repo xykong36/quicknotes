@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, BookOpen, Lightbulb, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { expressions } from "@/data/local/ep1-expression.json";
+import expressionData from "@/data/local/ep1-expression.json";
+const { expressions } = expressionData;
 
 // Define the props interface for the page component
 interface PageProps {
