@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   console.log("Received payload:", body);
 
   const user_email = "abc@gmail.com";
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST || "");
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_PROD || "");
 
   const session = await stripe.checkout.sessions.create({
     customer_email: user_email,
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
   // console.log("stripe_session", session);
 
   return respData({
-    public_key: process.env.STRIPE_PUBLIC_KEY_TEST,
+    public_key: process.env.STRIPE_PUBLIC_KEY_PROD,
     session_id: stripe_session_id,
   });
 }
