@@ -110,6 +110,13 @@
     "@clerk/types" "^4.40.0"
     tslib "2.4.1"
 
+"@clerk/localizations@^3.9.5":
+  version "3.9.5"
+  resolved "https://registry.yarnpkg.com/@clerk/localizations/-/localizations-3.9.5.tgz#062d4ca5ffcce39168b31ca2c19f1f8ec432c2f3"
+  integrity sha512-b0/NEVbk6AT6XMgIJYszuvx7kH+7jk+wnzcD4WD85CMvpTJdSeYUPV3uqw0HGr3O4wPeDz8NbRWnX/Esydo6yA==
+  dependencies:
+    "@clerk/types" "^4.40.0"
+
 "@clerk/nextjs@^6.9.6":
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@clerk/nextjs/-/nextjs-6.9.6.tgz#8e20b3fdd8592260b6351db993334f3c5dca0375"
