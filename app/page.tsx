@@ -7,8 +7,7 @@ import { EpisodeGrid } from "@/components/EpisodeGrid";
 import episodes from "@/data/episodes.json";
 import { EpisodeHeader } from "@/components/EpisodeHeader";
 import { TopicTagSection } from "@/components/TopicTagSection";
-import { SearchHeader } from "@/components/SearchHeader";
-import { Sidebar } from "@/components/Sidebar";
+import { NavigationBar } from "@/components/NavigationBar";
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,23 +53,17 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <NavigationBar
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
+      <TopicTagSection
+        selectedTags={selectedTags}
+        onClearTags={() => setSelectedTags({ ...selectedTags, topics: [] })}
+        onToggleTag={(tag) => toggleTag(tag, "topics")}
+      />
       <div className="flex h-full">
-        <Sidebar isOpen={isSidebarOpen}>
-          <TopicTagSection
-            selectedTags={selectedTags}
-            onClearTags={() => setSelectedTags({ ...selectedTags, topics: [] })}
-            onToggleTag={(tag) => toggleTag(tag, "topics")}
-          />
-        </Sidebar>
-
         <div className="flex-1 flex flex-col min-h-screen w-full md:w-[calc(100%-16rem)]">
-          <SearchHeader
-            isSidebarOpen={isSidebarOpen}
-            onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-          />
-
           <main className="flex-1 p-4 md:p-6">
             <EpisodeHeader
               count={filteredEpisodes.length}

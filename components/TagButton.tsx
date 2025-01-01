@@ -25,7 +25,7 @@ const getButtonClassName = (color: string, isSelected: boolean): string =>
 export const TagButton = memo(
   ({ tag, color, isSelected, onClick }: TagButtonProps) => (
     <button onClick={onClick} className={getButtonClassName(color, isSelected)}>
-      {tag}
+      # {tag}
     </button>
   )
 );
