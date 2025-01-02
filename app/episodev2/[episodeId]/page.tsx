@@ -1,8 +1,5 @@
-"use client";
-
-import { notFound } from "next/navigation";
-import TranscriptView from "@/components/TranscriptView";
-import allTranscripts from "@/data/local/all-full-transcript.json";
+import React, { lazy } from "react";
+import { Metadata } from "next";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,6 +8,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import allTranscripts from "@/data/local/all-full-transcript.json";
+
+// Lazy load the TranscriptViewWrapper component
+const TranscriptViewWrapper = lazy(() => import("./TranscriptViewWrapper"));
 
 interface PageProps {
   params: {
@@ -35,13 +36,34 @@ interface AllTranscripts {
 
 const typedAllTranscripts: AllTranscripts = allTranscripts as AllTranscripts;
 
+// Static params generation remains the same
+export async function generateStaticParams() {
+  const episodeIds = Object.keys(typedAllTranscripts).map((key) => ({
+    episodeId: key.replace("episode_", ""),
+  }));
+  return episodeIds;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { episodeId } = params;
+  return {
+    title: `Episode ${episodeId} | Your App Name`,
+    description: `Full transcript and analysis for Episode ${episodeId}`,
+  };
+}
+
+export const dynamic = "force-static";
+export const revalidate = false;
+
 export default function Page({ params }: PageProps) {
   const { episodeId } = params;
   const episodeKey = `episode_${episodeId}`;
   const episodeData = typedAllTranscripts[episodeKey];
 
   if (!episodeData) {
-    notFound();
+    return null;
   }
 
   return (
@@ -59,7 +81,7 @@ export default function Page({ params }: PageProps) {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <TranscriptView
+        <TranscriptViewWrapper
           transcript={episodeData.full_transcript}
           highlights={episodeData.highlights}
           episodeId={episodeId}
