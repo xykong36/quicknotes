@@ -30,7 +30,7 @@ const SearchInput = memo(({ value, onChange }: SearchBarProps) => {
 SearchInput.displayName = "SearchInput";
 
 export const SearchBar = memo(({ value, onChange }: SearchBarProps) => (
-  <div className="p-4 border-t border-gray-100">
+  <div className="p-4 ">
     <div className="relative">
       <SearchIcon />
       <SearchInput value={value} onChange={onChange} />

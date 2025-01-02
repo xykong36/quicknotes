@@ -7,11 +7,10 @@ import { EpisodeGrid } from "@/components/EpisodeGrid";
 import episodes from "@/data/episodes.json";
 import { EpisodeHeader } from "@/components/EpisodeHeader";
 import { TopicTagSection } from "@/components/TopicTagSection";
-import { NavigationBar } from "@/components/NavigationBar";
+import { SearchBar } from "@/components/SearchBar";
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState({
     topics: [] as TopicTag[],
   });
@@ -53,15 +52,15 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <NavigationBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-      />
+      <div className="flex flex-1 items-center">
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+      </div>
       <TopicTagSection
         selectedTags={selectedTags}
         onClearTags={() => setSelectedTags({ ...selectedTags, topics: [] })}
         onToggleTag={(tag) => toggleTag(tag, "topics")}
       />
+
       <div className="flex h-full">
         <div className="flex-1 flex flex-col min-h-screen w-full md:w-[calc(100%-16rem)]">
           <main className="flex-1 p-4 md:p-6">
@@ -72,13 +71,6 @@ const HomePage = () => {
             <EpisodeGrid episodes={filteredEpisodes} />
           </main>
         </div>
-
-        {isSidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-            onClick={() => setIsSidebarOpen(false)}
-          />
-        )}
       </div>
     </div>
   );
