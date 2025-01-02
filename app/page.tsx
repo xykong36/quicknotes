@@ -1,63 +1,31 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-
-import { TopicTag } from "@/constants/tags/enums";
-import { EpisodeGrid } from "@/components/EpisodeGrid";
+import React from "react";
 import episodes from "@/data/episodes.json";
-import { EpisodeHeader } from "@/components/EpisodeHeader";
-import { TopicTagSection } from "@/components/TopicTagSection";
+import { useSearch } from "@/hooks/useSearch";
 import { SearchBar } from "@/components/SearchBar";
+import { TopicTagSection } from "@/components/TopicTagSection";
+import { EpisodeHeader } from "@/components/EpisodeHeader";
+import { EpisodeGrid } from "@/components/EpisodeGrid";
 
 const HomePage = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState({
-    topics: [] as TopicTag[],
-  });
-
-  const filteredEpisodes = useMemo(() => {
-    let filtered = episodes.episodes;
-
-    // Filter by topics if any topics are selected
-    if (selectedTags.topics.length > 0) {
-      filtered = filtered.filter((episode) => {
-        const episodeTopics = episode.topic_tag.split(",").map((t) => t.trim());
-        return selectedTags.topics.some((selectedTopic) =>
-          episodeTopics.includes(selectedTopic)
-        );
-      });
-    }
-
-    // Filter by search query if present
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
-      filtered = filtered.filter(
-        (episode) =>
-          episode.youtube_creator.toLowerCase().includes(query) ||
-          episode.topic_tag.toLowerCase().includes(query)
-      );
-    }
-
-    return filtered;
-  }, [selectedTags.topics, searchQuery]);
-
-  const toggleTag = (tag: TopicTag, category: "topics") => {
-    setSelectedTags((prev) => ({
-      ...prev,
-      [category]: prev[category].includes(tag)
-        ? prev[category].filter((t) => t !== tag)
-        : [...prev[category], tag],
-    }));
-  };
+  const {
+    query,
+    selectedTags,
+    filteredEpisodes,
+    setSearchQuery,
+    toggleTag,
+    clearTags,
+  } = useSearch(episodes.episodes);
 
   return (
     <div className="min-h-screen bg-white">
       <div className="flex flex-1 items-center">
-        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        <SearchBar value={query} onChange={setSearchQuery} />
       </div>
       <TopicTagSection
         selectedTags={selectedTags}
-        onClearTags={() => setSelectedTags({ ...selectedTags, topics: [] })}
+        onClearTags={clearTags}
         onToggleTag={(tag) => toggleTag(tag, "topics")}
       />
 
