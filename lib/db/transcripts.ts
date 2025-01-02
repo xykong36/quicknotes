@@ -1,10 +1,10 @@
 import MongoConnection from "@/lib/mongodb";
-import { Transcript } from '@/types/transcript';
+import { Transcript } from "@/types/transcript";
 
 export class Transcripts {
   private static async getCollection() {
     const client = await MongoConnection.getInstance().getClient();
-    return client.db("quicknotes").collection<Transcript>('transcripts');
+    return client.db("quicknotes").collection<Transcript>("transcripts");
   }
 
   static async findAll(): Promise<Transcript[]> {
@@ -16,5 +16,4 @@ export class Transcripts {
     const collection = await this.getCollection();
     return collection.findOne({ video_id: id });
   }
-
 }
