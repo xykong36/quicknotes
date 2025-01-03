@@ -3,6 +3,7 @@ import { HighlightedText } from "./HighlightedText";
 import { BlankFilling } from "./BlankFilling";
 import { VocabularySection } from "./VocabularySection";
 import AudioPlayer from "./AudioPlayer";
+import VideoPlayer from "./VideoPlayer";
 import { AudioProvider } from "@/contexts/AudioContext";
 
 interface TranscriptViewProps {
@@ -80,6 +81,7 @@ export default function TranscriptView({
                 </div>
               </div>
             </div>
+            <VideoPlayer episodeId={episodeId} />
           </Section>
         </div>
 
